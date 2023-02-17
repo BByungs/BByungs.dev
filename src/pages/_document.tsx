@@ -19,7 +19,7 @@ class Document extends NextDocument {
 
   render() {
     return (
-      <Html lang="en">
+      <Html lang="ko">
         <Head>
           {/* Icon  */}
           <link rel="icon" href="/favicon.ico" />
