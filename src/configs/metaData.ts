@@ -3,10 +3,10 @@ export const METADATA = {
   title: '개발자 안병진',
   author: '안병진',
   description: '개발자 안병진의 블로그입니다.',
-  //   twitter: 'devpullingoff',
   email: 'byungjin0120@gmail.com',
   github: 'bbyungs',
-  //   linkedinLink: 'https://www.linkedin.com/in/hailey-park/',
+  //   linkedinLink: '//...',
+  //   twitter: '//...',
 };
 
 export type MetaDataType = {
