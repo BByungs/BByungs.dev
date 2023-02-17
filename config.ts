@@ -1,0 +1,4 @@
+export const CONFIG = {
+  ENV: process.env.NODE_ENV,
+  GOOGLE_SITE_VERIFICATION: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+};

@@ -1,12 +1,12 @@
+import { CONFIG } from '@config';
 import { METADATA, MetaDataType } from '@configs/metaData';
 import Head from 'next/head';
-import React from 'react';
 
 function withHead(Component: React.FC, customMeta?: MetaDataType) {
   return function WrappedAppComponent() {
     const metadata = { ...METADATA, ...customMeta };
     return (
-      <React.Fragment>
+      <>
         <Head>
           <meta content="width=device-width, initial-scale=1" name="viewport" />
           {/* Title */}
@@ -21,13 +21,17 @@ function withHead(Component: React.FC, customMeta?: MetaDataType) {
             key=""
           />
           {/* Google Search Engine */}
-          {/* Todo google search console에서 html태그 받아서 content에 넣어야 함 */}
-          {/* <meta name="google-site-verification" content="" /> */}
+          <meta
+            name="google-site-verification"
+            content={CONFIG.GOOGLE_SITE_VERIFICATION}
+          />
         </Head>
         <Component />
-      </React.Fragment>
+      </>
     );
   };
 }
 
 export default withHead;
+
+// google-site-verification=gBIdIA6LjIJ9rK3_jfZKoCSd_hls4IYlxa2UicsIs0Y
