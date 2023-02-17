@@ -21,7 +21,7 @@ class Document extends NextDocument {
     return (
       <Html lang="en">
         <Head>
-          <meta content="width=device-width, initial-scale=1" name="viewport" />
+          {/* Icon  */}
           <link rel="icon" href="/favicon.ico" />
           {/* Redirect IE to Edge */}
           <script dangerouslySetInnerHTML={this.redirectIEtoEdge()} />
