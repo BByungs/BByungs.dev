@@ -15,7 +15,7 @@ const Layout = ({
   ...css
 }: LayoutProps) => {
   return (
-    <Container>
+    <Container {...css}>
       {/* header */}
       {header}
       {/* content */}
