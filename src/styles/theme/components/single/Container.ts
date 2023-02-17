@@ -1,12 +1,10 @@
 import { ComponentSingleStyleConfig } from '@chakra-ui/theme';
-import breakpoints from '@theme/foundations/breakpoints';
+import { maxWidth } from '@constants/maxWidth';
 
 export const Container: ComponentSingleStyleConfig = {
   baseStyle: {
     padding: '0px',
-    maxW: {
-      ...breakpoints,
-    },
+    maxW: maxWidth,
   },
   defaultProps: {},
   sizes: {},
