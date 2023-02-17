@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://devahn.vercel.app/sitemap.xml
