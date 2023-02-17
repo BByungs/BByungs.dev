@@ -89,8 +89,6 @@ const variantSolid: StyleObjectOrFn = (props) => {
 
 export const Button: ComponentSingleStyleConfig = {
   baseStyle: {
-    w: 'fit-content',
-    h: 'fit-content',
     _focus: { boxShadow: 'none' },
   },
   variants: {

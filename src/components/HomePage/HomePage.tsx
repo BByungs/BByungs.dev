@@ -7,7 +7,163 @@ const HomePage = () => {
 
   return (
     <Box mb={4} bg={bg} color={color}>
-      This boxs style will change based on the color mode.
+      This boxs style will change based on the color mode. This boxs style will
+      change based on the color mode. This boxs style will change based on the
+      color mode. This boxs style will change based on the color mode. This boxs
+      style will change based on the color mode. This boxs style will change
+      based on the color mode. This boxs style will change based on the color
+      mode. This boxs style will change based on the color mode. This boxs style
+      will change based on the color mode. This boxs style will change based on
+      the color mode. This boxs style will change based on the color mode. This
+      boxs style will change based on the color mode. This boxs style will
+      change based on the color mode. This boxs style will change based on the
+      color mode. This boxs style will change based on the color mode. This boxs
+      style will change based on the color mode. This boxs style will change
+      based on the color mode. This boxs style will change based on the color
+      mode. This boxs style will change based on the color mode. This boxs style
+      will change based on the color mode. This boxs style will change based on
+      the color mode. This boxs style will change based on the color mode. This
+      boxs style will change based on the color mode. This boxs style will
+      change based on the color mode. This boxs style will change based on the
+      color mode. This boxs style will change based on the color mode. This boxs
+      style will change based on the color mode. This boxs style will change
+      based on the color mode. This boxs style will change based on the color
+      mode. This boxs style will change based on the color mode. This boxs style
+      will change based on the color mode. This boxs style will change based on
+      the color mode. This boxs style will change based on the color mode. This
+      boxs style will change based on the color mode. This boxs style will
+      change based on the color mode. This boxs style will change based on the
+      color mode. This boxs style will change based on the color mode. This boxs
+      style will change based on the color mode. This boxs style will change
+      based on the color mode. This boxs style will change based on the color
+      mode. This boxs style will change based on the color mode. This boxs style
+      will change based on the color mode. This boxs style will change based on
+      the color mode. This boxs style will change based on the color mode. This
+      boxs style will change based on the color mode. This boxs style will
+      change based on the color mode. This boxs style will change based on the
+      color mode. This boxs style will change based on the color mode. This boxs
+      style will change based on the color mode. This boxs style will change
+      based on the color mode. This boxs style will change based on the color
+      mode. This boxs style will change based on the color mode. This boxs style
+      will change based on the color mode. This boxs style will change based on
+      the color mode. This boxs style will change based on the color mode. This
+      boxs style will change based on the color mode. This boxs style will
+      change based on the color mode. This boxs style will change based on the
+      color mode. This boxs style will change based on the color mode. This boxs
+      style will change based on the color mode. This boxs style will change
+      based on the color mode. This boxs style will change based on the color
+      mode. This boxs style will change based on the color mode. This boxs style
+      will change based on the color mode. This boxs style will change based on
+      the color mode. This boxs style will change based on the color mode. This
+      boxs style will change based on the color mode. This boxs style will
+      change based on the color mode. This boxs style will change based on the
+      color mode. This boxs style will change based on the color mode. This boxs
+      style will change based on the color mode. This boxs style will change
+      based on the color mode.This boxs style will change based on the color
+      mode. This boxs style will change based on the color mode. This boxs style
+      will change based on the color mode. This boxs style will change based on
+      the color mode. This boxs style will change based on the color mode. This
+      boxs style will change based on the color mode. This boxs style will
+      change based on the color mode. This boxs style will change based on the
+      color mode. This boxs style will change based on the color mode. This boxs
+      style will change based on the color mode. This boxs style will change
+      based on the color mode. This boxs style will change based on the color
+      mode. This boxs style will change based on the color mode. This boxs style
+      will change based on the color mode. This boxs style will change based on
+      the color mode. This boxs style will change based on the color mode. This
+      boxs style will change based on the color mode. This boxs style will
+      change based on the color mode. This boxs style will change based on the
+      color mode. This boxs style will change based on the color mode. This boxs
+      style will change based on the color mode. This boxs style will change
+      based on the color mode. This boxs style will change based on the color
+      mode. This boxs style will change based on the color mode. This boxs style
+      will change based on the color mode. This boxs style will change based on
+      the color mode. This boxs style will change based on the color mode. This
+      boxs style will change based on the color mode. This boxs style will
+      change based on the color mode. This boxs style will change based on the
+      color mode. This boxs style will change based on the color mode. This boxs
+      style will change based on the color mode. This boxs style will change
+      based on the color mode. This boxs style will change based on the color
+      mode. This boxs style will change based on the color mode. This boxs style
+      will change based on the color mode. This boxs style will change based on
+      the color mode. This boxs style will change based on the color mode. This
+      boxs style will change based on the color mode. This boxs style will
+      change based on the color mode. This boxs style will change based on the
+      color mode. This boxs style will change based on the color mode. This boxs
+      style will change based on the color mode. This boxs style will change
+      based on the color mode. This boxs style will change based on the color
+      mode. This boxs style will change based on the color mode. This boxs style
+      will change based on the color mode. This boxs style will change based on
+      the color mode. This boxs style will change based on the color mode. This
+      boxs style will change based on the color mode. This boxs style will
+      change based on the color mode. This boxs style will change based on the
+      color mode. This boxs style will change based on the color mode. This boxs
+      style will change based on the color mode. This boxs style will change
+      based on the color mode. This boxs style will change based on the color
+      mode. This boxs style will change based on the color mode. This boxs style
+      will change based on the color mode. This boxs style will change based on
+      the color mode. This boxs style will change based on the color mode. This
+      boxs style will change based on the color mode. This boxs style will
+      change based on the color mode. This boxs style will change based on the
+      color mode. This boxs style will change based on the color mode. This boxs
+      style will change based on the color mode. This boxs style will change
+      based on the color mode. This boxs style will change based on the color
+      mode. This boxs style will change based on the color mode. This boxs style
+      will change based on the color mode. This boxs style will change based on
+      the color mode. This boxs style will change based on the color mode. This
+      boxs style will change based on the color mode.This boxs style will change
+      based on the color mode. This boxs style will change based on the color
+      mode. This boxs style will change based on the color mode. This boxs style
+      will change based on the color mode. This boxs style will change based on
+      the color mode. This boxs style will change based on the color mode. This
+      boxs style will change based on the color mode. This boxs style will
+      change based on the color mode. This boxs style will change based on the
+      color mode. This boxs style will change based on the color mode. This boxs
+      style will change based on the color mode. This boxs style will change
+      based on the color mode. This boxs style will change based on the color
+      mode. This boxs style will change based on the color mode. This boxs style
+      will change based on the color mode. This boxs style will change based on
+      the color mode. This boxs style will change based on the color mode. This
+      boxs style will change based on the color mode. This boxs style will
+      change based on the color mode. This boxs style will change based on the
+      color mode. This boxs style will change based on the color mode. This boxs
+      style will change based on the color mode. This boxs style will change
+      based on the color mode. This boxs style will change based on the color
+      mode. This boxs style will change based on the color mode. This boxs style
+      will change based on the color mode. This boxs style will change based on
+      the color mode. This boxs style will change based on the color mode. This
+      boxs style will change based on the color mode. This boxs style will
+      change based on the color mode. This boxs style will change based on the
+      color mode. This boxs style will change based on the color mode. This boxs
+      style will change based on the color mode. This boxs style will change
+      based on the color mode. This boxs style will change based on the color
+      mode. This boxs style will change based on the color mode. This boxs style
+      will change based on the color mode. This boxs style will change based on
+      the color mode. This boxs style will change based on the color mode. This
+      boxs style will change based on the color mode. This boxs style will
+      change based on the color mode. This boxs style will change based on the
+      color mode. This boxs style will change based on the color mode. This boxs
+      style will change based on the color mode. This boxs style will change
+      based on the color mode. This boxs style will change based on the color
+      mode. This boxs style will change based on the color mode. This boxs style
+      will change based on the color mode. This boxs style will change based on
+      the color mode. This boxs style will change based on the color mode. This
+      boxs style will change based on the color mode. This boxs style will
+      change based on the color mode. This boxs style will change based on the
+      color mode. This boxs style will change based on the color mode. This boxs
+      style will change based on the color mode. This boxs style will change
+      based on the color mode. This boxs style will change based on the color
+      mode. This boxs style will change based on the color mode. This boxs style
+      will change based on the color mode. This boxs style will change based on
+      the color mode. This boxs style will change based on the color mode. This
+      boxs style will change based on the color mode. This boxs style will
+      change based on the color mode. This boxs style will change based on the
+      color mode. This boxs style will change based on the color mode. This boxs
+      style will change based on the color mode. This boxs style will change
+      based on the color mode. This boxs style will change based on the color
+      mode. This boxs style will change based on the color mode. This boxs style
+      will change based on the color mode. This boxs style will change based on
+      the color mode. This boxs style will change based on the color mode.
     </Box>
   );
 };
