@@ -1,8 +1,11 @@
+import { theme as chakraTheme } from '@chakra-ui/react';
+
 const typography = {
   fonts: {
-    // heading: 'Pretendard, sans-serif',
-    // body: 'Pretendard, sans-serif',
-    // mono: 'Pretendard, sans-serif',
+    ...chakraTheme.fonts,
+    heading: 'Pretendard, sans-serif',
+    body: 'Pretendard, sans-serif',
+    mono: 'Pretendard, sans-serif',
   },
   fontWeights: {
     thin: 100,
