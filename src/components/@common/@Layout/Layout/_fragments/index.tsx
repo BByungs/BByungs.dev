@@ -1,6 +1,5 @@
 import MainHeader from './MainHeader';
-import MainFooter from './MainFooter';
 import NavBar from './NavBar';
-import NavDrawer from './NavDrawer';
+import Buttons from './Buttons';
 
-export { MainHeader, MainFooter, NavBar, NavDrawer };
+export { MainHeader, NavBar, Buttons };

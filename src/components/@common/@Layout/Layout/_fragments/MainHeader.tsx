@@ -1,49 +1,35 @@
-import React, { useMemo } from 'react';
-import { Button, Flex, Image, useColorMode } from '@chakra-ui/react';
+import React from 'react';
+import { Flex, useColorModeValue } from '@chakra-ui/react';
 import NavBar from './NavBar';
-import NavDrawer from './NavDrawer';
+import Buttons from './Buttons';
+import { maxWidth } from '@constants/maxWidth';
 
 const MainHeader = () => {
-  const { colorMode, toggleColorMode } = useColorMode();
-  const isLightMode = useMemo(() => {
-    return colorMode === 'light';
-  }, [colorMode]);
+  const headerBg = useColorModeValue('white', 'gray.800');
+  const borderBottomColor = useColorModeValue('#e0e0e0', 'white');
+
   return (
     <Flex
       as="header"
-      h="66px"
-      alignItems="center"
-      justifyContent="space-between"
+      borderColor={borderBottomColor}
+      w="100%"
+      borderBottomWidth="1px"
       pos="sticky"
-      top="0"
       zIndex="sticky"
-      bgColor={isLightMode ? 'white' : 'gray.800'}
-      px="20px"
+      top="0"
+      bg={headerBg}
+      h="66px"
     >
-      {/* PC VERSION(Tab형태) */}
-      <NavBar display={{ base: 'none', sm: 'block' }} />
-      {/* PC VERSION(Drawer) */}
-      <NavDrawer display={{ base: 'block', sm: 'none' }} />
-
-      <Flex>
-        {/* COLOR MODE BUTTON */}
-        <Button
-          onClick={toggleColorMode}
-          variant="unstyled"
-          boxSize="30px"
-          minW="30px !important"
-        >
-          <Image
-            src={`/icons/${isLightMode ? 'sun' : 'moon'}.png`}
-            alt="asdasd"
-            boxSize="30px"
-          />
-        </Button>
-        {/* <Button
-          variant="unstyled"
-          boxSize="30px"
-          minW="30px !important"
-        ></Button> */}
+      <Flex
+        alignItems="center"
+        justifyContent="space-between"
+        columnGap="20px"
+        w={maxWidth}
+        mx="auto"
+        px="20px"
+      >
+        <NavBar />
+        <Buttons />
       </Flex>
     </Flex>
   );

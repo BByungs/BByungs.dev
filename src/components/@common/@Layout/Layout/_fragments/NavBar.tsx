@@ -6,17 +6,20 @@ import { NAVBAR_DATA } from '@constants/navBarData';
 const NavBar = ({ ...css }: ListProps) => {
   return (
     <UnorderedList listStyleType="none" m="0" {...css}>
-      {NAVBAR_DATA.map(({ linkName, link }, idx) => (
-        <ListItem
-          float="left"
-          mr={idx !== 4 ? '20px' : '0px'}
-          key={`NAVBAR_${linkName}`}
-        >
-          <Link href={link}>
-            <Text>{linkName}</Text>
-          </Link>
-        </ListItem>
-      ))}
+      {NAVBAR_DATA.map(({ linkName, link }, idx, allArr) => {
+        const isLastIdx = idx === allArr.length - 1;
+        return (
+          <ListItem
+            float="left"
+            key={`NAVBAR_${linkName}`}
+            mr={isLastIdx ? '0px' : '20px'}
+          >
+            <Link href={link}>
+              <Text fontWeight="bold">{linkName}</Text>
+            </Link>
+          </ListItem>
+        );
+      })}
     </UnorderedList>
   );
 };

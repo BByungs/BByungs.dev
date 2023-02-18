@@ -1,4 +1,4 @@
 export const maxWidth = {
-  base: '375px',
+  base: '100%',
   sm: '768px',
 };
