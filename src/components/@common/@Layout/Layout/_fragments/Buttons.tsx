@@ -8,11 +8,21 @@ const Buttons = () => {
   const isLogin = false;
   return (
     <Flex gap="15px" alignItems="center">
-      <Button variant="unstyled" minW="30px !important" boxSize="30px">
+      <Button
+        variant="unstyled"
+        minW="30px !important"
+        boxSize="30px"
+        aria-label={isLogin ? 'logout-btn' : 'login-btn'}
+      >
         <Icon as={isLogin ? FiLogOut : MdOutlinePerson} boxSize="30px" />
       </Button>
 
-      <Button variant="unstyled" minW="30px !important" boxSize="30px">
+      <Button
+        variant="unstyled"
+        minW="30px !important"
+        boxSize="30px"
+        aria-label="blog-post-btn"
+      >
         <Icon as={TbEdit} boxSize="30px" />
       </Button>
     </Flex>

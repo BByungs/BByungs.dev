@@ -23,6 +23,7 @@ const ColorModeButton = () => {
       border="1px solid"
       borderColor={buttonBorderColor}
       borderRadius="100%"
+      aria-label="color-mode-btn"
     >
       {colorModeIcon}
     </Button>
