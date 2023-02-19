@@ -1,5 +1,5 @@
 import MainHeader from './MainHeader';
 import NavBar from './NavBar';
-import Buttons from './Buttons';
+import ColorModeButton from './ColorModeButton';
 
-export { MainHeader, NavBar, Buttons };
+export { MainHeader, NavBar, ColorModeButton };

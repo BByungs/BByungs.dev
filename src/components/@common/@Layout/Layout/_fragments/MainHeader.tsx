@@ -1,8 +1,8 @@
-import React from 'react';
 import { Flex, useColorModeValue } from '@chakra-ui/react';
-import NavBar from './NavBar';
-import Buttons from './Buttons';
+
 import { maxWidth } from '@constants/maxWidth';
+import ColorModeButton from './ColorModeButton';
+import NavBar from './NavBar';
 
 const MainHeader = () => {
   const headerBg = useColorModeValue('white', 'gray.800');
@@ -29,7 +29,7 @@ const MainHeader = () => {
         px="20px"
       >
         <NavBar />
-        <Buttons />
+        <ColorModeButton />
       </Flex>
     </Flex>
   );
