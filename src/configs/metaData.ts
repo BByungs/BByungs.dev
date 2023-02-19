@@ -1,12 +1,10 @@
-export const METADATA = {
+export const METADATA: MetaDataType = {
   url: 'https://devahn.vercel.app/',
-  title: `끄적이는 공간`,
+  title: `Home | BByungs.dev`,
   author: '안병진',
-  description: '개발자 안병진의 블로그입니다.',
+  description: `Dev Ahn's Blog`,
   email: 'byungjin0120@gmail.com',
   github: 'bbyungs',
-  //   linkedinLink: '//...',
-  //   twitter: '//...',
 };
 
 export type MetaDataType = {
