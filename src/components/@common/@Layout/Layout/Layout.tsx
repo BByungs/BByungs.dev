@@ -1,6 +1,6 @@
+import React from 'react';
 import { Container, ContainerProps } from '@chakra-ui/react';
 import ColorModeButton from '@components/@common/ColorModeButton';
-import React from 'react';
 import { MainHeader } from './_fragments';
 
 export interface LayoutProps extends ContainerProps {
@@ -17,13 +17,15 @@ const Layout = ({
 }: LayoutProps) => {
   return (
     <React.Fragment>
-      {/* header */}
+      {/* Header */}
       {header}
-      {/* content */}
-      <Container {...css}>{content}</Container>
-      {/* footer */}
+      {/* Content */}
+      <Container {...css} as="main">
+        {content}
+      </Container>
+      {/* Footer */}
       {footer}
-
+      {/* Color Mode Button */}
       <ColorModeButton />
     </React.Fragment>
   );
