@@ -7,12 +7,10 @@ function withHead(Component: React.FC, customMeta?: MetaDataType) {
     return (
       <>
         <Head>
-          {/* Title */}
-          <meta property="og:site_name" content={metadata.title} key="" />
-          <meta property="og:title" content={metadata.title} key="" />
+          <meta name="description" content={metadata.description} />
+          <meta property="og:site_name" content={metadata.title} />
+          <meta property="og:title" content={metadata.title} />
           <title>{metadata.title}</title>
-          {/* Description */}
-          <meta content={metadata.description} name="description" key="" />
           <meta
             property="og:description"
             content={metadata.description}
