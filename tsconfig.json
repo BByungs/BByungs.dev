@@ -13,7 +13,8 @@
       "@image": ["./generated/path/images.ts"],
       "@config": ["../config.ts"],
       "@hocs/*": ["./hocs/*"],
-      "@configs/*": ["./configs/*"]
+      "@configs/*": ["./configs/*"],
+      "contentlayer/generated": ["../.contentlayer/generated/"]
     },
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
@@ -30,6 +31,14 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "../.contentlayer/generated/"
+  ],
+  "exclude": ["node_modules"],
+  "mdx": {
+    "plugins": [["remark-frontmatter", ["toml", "yaml"]], "remark-gfm"]
+  }
 }
