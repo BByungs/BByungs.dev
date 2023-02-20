@@ -1,10 +1,12 @@
 import { HTMLChakraProps, chakra } from '@chakra-ui/react';
 
 export const LinkFragment = (props: HTMLChakraProps<'h2'>) => {
+  console.log(props.id);
+
   return (
     <chakra.h2 data-group="" css={{ scrollMarginBlock: '6.875rem' }} {...props}>
       <span className="content">{props.children}</span>
-      {
+      {/* {
         <chakra.a
           aria-label="anchor"
           color="teal.500"
@@ -18,7 +20,7 @@ export const LinkFragment = (props: HTMLChakraProps<'h2'>) => {
         >
           #
         </chakra.a>
-      }
+      } */}
     </chakra.h2>
   );
 };

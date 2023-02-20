@@ -25,9 +25,6 @@ const BlogPage = ({ post }: BlogLayoutProps) => {
         <meta property="og:description" content={metadata.description} key="" />
       </Head>
       <Component components={MDXComponents as any} />
-      {/* <Component components={{
-        code: (props) => 
-      }} /> */}
     </React.Fragment>
   );
 };
