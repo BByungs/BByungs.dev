@@ -3,6 +3,8 @@ import Head from 'next/head';
 import { METADATA } from '@configs/metaData';
 import { useMDXComponent } from 'next-contentlayer/hooks';
 import { BlogLayoutProps } from '@components/@common/@Layout/BlogLayout/BlogLayout';
+import { Box, chakra } from '@chakra-ui/react';
+import { MDXComponents } from '@components/@common/MdxComponent/MdxComponent';
 
 export interface BlogPage extends BlogLayoutProps {}
 
@@ -13,7 +15,6 @@ const BlogPage = ({ post }: BlogLayoutProps) => {
     description: post.description,
   };
   const Component = useMDXComponent(post.body.code);
-
   return (
     <React.Fragment>
       <Head>
@@ -23,7 +24,10 @@ const BlogPage = ({ post }: BlogLayoutProps) => {
         <title>{metadata.title}</title>
         <meta property="og:description" content={metadata.description} key="" />
       </Head>
-      <Component />
+      <Component components={MDXComponents as any} />
+      {/* <Component components={{
+        code: (props) => 
+      }} /> */}
     </React.Fragment>
   );
 };
