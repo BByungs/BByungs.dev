@@ -3,7 +3,7 @@ import React, { useRef } from 'react';
 
 import { useSize } from '@chakra-ui/react-use-size';
 
-export const InlineCode = (props: HTMLChakraProps<'code'>) => {
+const InlineCode = (props: HTMLChakraProps<'code'>) => {
   const codeRef = useRef(null);
   const dimensions = useSize(codeRef);
 
@@ -29,3 +29,5 @@ export const InlineCode = (props: HTMLChakraProps<'code'>) => {
     />
   );
 };
+
+export default InlineCode;

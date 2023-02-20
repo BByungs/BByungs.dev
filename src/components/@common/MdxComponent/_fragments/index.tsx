@@ -1,5 +1,5 @@
-import Pre from './Pre';
 import LinkFragment from './LinkFragment';
-import { InlineCode } from './InlineCode';
+import InlineCode from './InlineCode';
+import CodeBlock from './CodeBlock';
 
-export { Pre, LinkFragment, InlineCode };
+export { LinkFragment, InlineCode, CodeBlock };

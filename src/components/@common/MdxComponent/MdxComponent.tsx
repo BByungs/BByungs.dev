@@ -1,13 +1,11 @@
 import * as Chakra from '@chakra-ui/react';
-import { Box } from '@chakra-ui/react';
 import {
   DetailedHTMLProps,
   HTMLAttributes,
   LiHTMLAttributes,
   OlHTMLAttributes,
 } from 'react';
-import { InlineCode, LinkFragment, Pre } from './_fragments';
-import CodeBlock from './_fragments/CodeBlock/CodeBlock';
+import { CodeBlock, InlineCode, LinkFragment } from './_fragments';
 const { chakra } = Chakra;
 
 export const MDXComponents = {
@@ -84,7 +82,6 @@ export const MDXComponents = {
   pre: (
     props: DetailedHTMLProps<HTMLAttributes<HTMLPreElement>, HTMLPreElement>
   ) => {
-    if (typeof props.children === 'string') return <Pre {...props} />;
     return <CodeBlock {...props} />;
   },
   strong: (
