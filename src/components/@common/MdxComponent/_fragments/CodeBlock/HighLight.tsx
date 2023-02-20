@@ -26,8 +26,6 @@ const calculateLinesToHighlight = (meta?: string) => {
     .split(`,`)
     .map((v) => v.split(`-`).map((x) => parseInt(x, 10)));
 
-  console.log(lineNumbers);
-
   return (index: number) => {
     const lineNumber = index + 1;
     const inRange = lineNumbers.some(([start, end]) =>
