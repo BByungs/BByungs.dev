@@ -1,5 +1,4 @@
 import BlogLayout from '@components/@common/@Layout/BlogLayout/BlogLayout';
-import Layout from '@components/@common/@Layout/Layout';
 import { allBlogs, Blog } from 'contentlayer/generated';
 import {
   GetStaticPathsResult,
@@ -37,7 +36,7 @@ export const getStaticProps = async ({
 const BlogPage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
   post,
 }) => {
-  return <Layout content={<BlogLayout post={post} />} />;
+  return <BlogLayout post={post} />;
 };
 
 export default BlogPage;
