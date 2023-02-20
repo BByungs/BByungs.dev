@@ -1,30 +1,32 @@
 import { defineDocumentType, makeSource } from 'contentlayer/source-files';
 
-export const Post = defineDocumentType(() => ({
-  name: 'Post',
-  filePathPattern: `**/*.mdx`,
+export const Blog = defineDocumentType(() => ({
+  name: 'Blog',
+  filePathPattern: `blog/**/*.mdx`,
   contentType: 'mdx',
   fields: {
     title: {
       type: 'string',
-      description: 'The title of the post',
       required: true,
     },
     date: {
       type: 'date',
-      description: 'The date of the post',
+      required: true,
+    },
+    description: {
+      type: 'string',
       required: true,
     },
   },
   computedFields: {
-    url: {
+    slug: {
       type: 'string',
-      resolve: (post) => `/posts/${post._raw.flattenedPath}`,
+      resolve: (doc) => doc._raw.sourceFileName.replace(/\.mdx$/, ''),
     },
   },
 }));
 
 export default makeSource({
   contentDirPath: 'posts', // mdx파일들이 몰려있는 폴더
-  documentTypes: [Post],
+  documentTypes: [Blog],
 });
