@@ -7,7 +7,7 @@ export const METADATA: MetaDataType = {
   description: `Dev Ahn's Blog`,
   email: 'byungjin0120@gmail.com',
   github: 'bbyungs',
-  thumbnailUrl: '/posts/thumbnail.jpeg',
+  thumbnailUrl: '/posts/thumbnail.png',
   date: getUtcDate(new Date()),
 };
 
