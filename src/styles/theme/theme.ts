@@ -1,7 +1,7 @@
 import { extendTheme } from '@chakra-ui/react';
 import components from './components';
 import foundations from './foundations';
-import textStyles from './testStyles';
+import textStyles from './textStyles';
 
 const overrides = {
   ...foundations,
