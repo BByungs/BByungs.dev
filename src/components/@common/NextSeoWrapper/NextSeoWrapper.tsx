@@ -2,7 +2,7 @@ import React, { ReactNode, useMemo } from 'react';
 import Head from 'next/head';
 import { chakra, Flex, Text, useColorMode } from '@chakra-ui/react';
 import { MetaDataType } from '@configs/metaData';
-import dayjs from 'dayjs';
+import usDateString from '@utils/date/usDateString';
 
 interface NextSeoWrapperProps {
   metaData: MetaDataType;
@@ -55,7 +55,7 @@ const NextSeoWrapper = ({ metaData, children }: NextSeoWrapperProps) => {
             </chakra.h1>
 
             <Text float="left" w={{ base: '100%', sm: 'auto' }}>
-              {dayjs(metaData.date).format('YYYY-MM-DD')}
+              {usDateString(metaData.date)}
             </Text>
           </Flex>
         )}

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Blog } from 'contentlayer/generated';
-import { Box, Flex, ListItem, Text, Image } from '@chakra-ui/react';
+import { Flex, ListItem, Text, Image } from '@chakra-ui/react';
 import Link from 'next/link';
-import dayjs from 'dayjs';
+import usDateString from '@utils/date/usDateString';
 
 interface BlogCardProps {
   blogData: Blog;
@@ -33,7 +33,7 @@ const BlogCard = ({ blogData }: BlogCardProps) => {
             </Text>
             <Text mb="20px">{blogData.description}</Text>
 
-            {/* <Text>{dayjs(blogData.date).format('YYYY-MM-DD')}</Text> */}
+            <Text>{usDateString(blogData.date)}</Text>
           </Flex>
 
           {/* <Box boxSize="100px" borderRadius="10px" overflow="hidden">
