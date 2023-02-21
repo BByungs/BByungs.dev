@@ -1,4 +1,4 @@
-import { getUtcDate } from './../utils/date/getUtcDate';
+// import { getUtcDate } from './../utils/date/getUtcDate';
 
 export const METADATA: MetaDataType = {
   url: 'https://devahn.vercel.app/',
@@ -7,7 +7,7 @@ export const METADATA: MetaDataType = {
   description: `Dev Ahn's Blog`,
   email: 'byungjin0120@gmail.com',
   github: 'bbyungs',
-  date: getUtcDate(new Date()),
+  date: '',
   // 기초 썸네일 url
   thumbnailUrl: '',
 };
