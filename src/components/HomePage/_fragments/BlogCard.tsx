@@ -33,7 +33,7 @@ const BlogCard = ({ blogData }: BlogCardProps) => {
             </Text>
             <Text mb="20px">{blogData.description}</Text>
 
-            <Text>{dayjs(blogData.date).format('YYYY-MM-DD')}</Text>
+            {/* <Text>{dayjs(blogData.date).format('YYYY-MM-DD')}</Text> */}
           </Flex>
 
           {/* <Box boxSize="100px" borderRadius="10px" overflow="hidden">
