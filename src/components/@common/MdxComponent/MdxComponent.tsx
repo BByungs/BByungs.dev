@@ -1,12 +1,21 @@
 import * as Chakra from '@chakra-ui/react';
+import { AlertProps } from '@chakra-ui/react';
 import {
+  AnchorHTMLAttributes,
   DetailedHTMLProps,
   HTMLAttributes,
   LiHTMLAttributes,
   OlHTMLAttributes,
 } from 'react';
-import { CodeBlock, InlineCode, LinkFragment } from './_fragments';
-const { chakra } = Chakra;
+import {
+  CodeBlock,
+  InlineCode,
+  LinkFragment,
+  Table,
+  TData,
+  THead,
+} from './_fragments';
+const { chakra, Kbd, Alert } = Chakra;
 
 export const MDXComponents = {
   ...Chakra,
@@ -78,7 +87,7 @@ export const MDXComponents = {
   ) => <chakra.ol apply="mdx.ul" {...props} />,
   li: (
     props: DetailedHTMLProps<LiHTMLAttributes<HTMLLIElement>, HTMLLIElement>
-  ) => <chakra.li pb="4px" listStylePos="inside" {...props} />,
+  ) => <chakra.li pb="4px" apply="mdx.li" listStylePos="inside" {...props} />,
   pre: (
     props: DetailedHTMLProps<HTMLAttributes<HTMLPreElement>, HTMLPreElement>
   ) => {
@@ -94,4 +103,26 @@ export const MDXComponents = {
   br: (
     props: DetailedHTMLProps<HTMLAttributes<HTMLBRElement>, HTMLBRElement>
   ) => <chakra.br height="24px" {...props} />,
+  kbd: Kbd,
+  table: Table,
+  th: THead,
+  td: TData,
+  a: (
+    props: DetailedHTMLProps<
+      AnchorHTMLAttributes<HTMLAnchorElement>,
+      HTMLAnchorElement
+    >
+  ) => <chakra.a apply="mdx.a" {...props} />,
+  blockquote: (props: AlertProps) => (
+    <Alert
+      mt="4"
+      role="none"
+      status="warning"
+      variant="left-accent"
+      as="blockquote"
+      rounded="4px"
+      my="1.5rem"
+      {...props}
+    />
+  ),
 };
