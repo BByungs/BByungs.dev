@@ -20,12 +20,12 @@ const BlogCard = ({ blogData }: BlogCardProps) => {
     >
       <Link href={`/blog/${blogData.slug}`}>
         <Flex
-          justify="space-between"
+          //   justify="space-between"
+          // columnGap="30px"
           alignItems="center"
           borderBottomWidth="2px"
           pb="30px"
           borderColor="gray.200"
-          columnGap="30px"
         >
           <Flex flexDir="column">
             <Text as="h1" color="teal.400" textStyle="large">
@@ -36,7 +36,7 @@ const BlogCard = ({ blogData }: BlogCardProps) => {
             <Text>{dayjs(blogData.date).format('YYYY-MM-DD')}</Text>
           </Flex>
 
-          <Box boxSize="100px" borderRadius="10px" overflow="hidden">
+          {/* <Box boxSize="100px" borderRadius="10px" overflow="hidden">
             <Image
               src={blogData.thumbnailUrl}
               w="inherit"
@@ -44,7 +44,7 @@ const BlogCard = ({ blogData }: BlogCardProps) => {
               alt={`${blogData.slug}_${blogData.title}`}
               objectFit="fill"
             />
-          </Box>
+          </Box> */}
         </Flex>
       </Link>
     </ListItem>
