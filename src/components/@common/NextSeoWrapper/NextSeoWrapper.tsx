@@ -14,6 +14,8 @@ const NextSeoWrapper = ({ metaData, children }: NextSeoWrapperProps) => {
     return metaData.url === '/';
   }, [metaData.url]);
   const { colorMode } = useColorMode();
+  // 이미지의 이름에 .이 포함되면 안된다
+  const [_, ext] = metaData.thumbnailUrl.split('.');
 
   return (
     <React.Fragment>
@@ -27,6 +29,7 @@ const NextSeoWrapper = ({ metaData, children }: NextSeoWrapperProps) => {
         <meta property="og:image" content={metaData.thumbnailUrl} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
+        <meta property="og:image:type" content={`image/${ext}`} />
       </Head>
 
       <React.Fragment>
