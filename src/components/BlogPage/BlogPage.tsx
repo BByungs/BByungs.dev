@@ -1,9 +1,9 @@
 import React from 'react';
-import Head from 'next/head';
 import { METADATA } from '@configs/metaData';
 import { useMDXComponent } from 'next-contentlayer/hooks';
 import { BlogLayoutProps } from '@components/@common/@Layout/BlogLayout/BlogLayout';
 import { MDXComponents } from '@components/@common/MdxComponent/MdxComponent';
+import NextSeoWrapper from '@components/@common/NextSeoWrapper';
 
 export interface BlogPage extends BlogLayoutProps {}
 
@@ -12,19 +12,15 @@ const BlogPage = ({ post }: BlogLayoutProps) => {
     ...METADATA,
     title: post.title,
     description: post.description,
+    date: post.date,
+    url: post.slug,
   };
+
   const Component = useMDXComponent(post.body.code);
   return (
-    <React.Fragment>
-      <Head>
-        <meta name="description" content={metadata.description} />
-        <meta property="og:site_name" content={metadata.title} />
-        <meta property="og:title" content={metadata.title} />
-        <title>{metadata.title}</title>
-        <meta property="og:description" content={metadata.description} key="" />
-      </Head>
+    <NextSeoWrapper metaData={metadata}>
       <Component components={MDXComponents as any} />
-    </React.Fragment>
+    </NextSeoWrapper>
   );
 };
 
