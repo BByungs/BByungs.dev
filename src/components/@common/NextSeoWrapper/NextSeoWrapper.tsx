@@ -24,7 +24,7 @@ const NextSeoWrapper = ({ metaData, children }: NextSeoWrapperProps) => {
         <title>{metaData.title}</title>
         <meta property="og:description" content={metaData.description} />
         {/* image */}
-        <meta property="og:image" content={`/posts/${metaData.thumbnailUrl}`} />
+        <meta property="og:image" content={metaData.thumbnailUrl} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
       </Head>
