@@ -1,10 +1,15 @@
 import * as Chakra from '@chakra-ui/react';
-import { AlertProps } from '@chakra-ui/react';
+import {
+  AlertProps,
+  ListItem,
+  ListItemProps,
+  OrderedList,
+  UnorderedList,
+} from '@chakra-ui/react';
 import {
   AnchorHTMLAttributes,
   DetailedHTMLProps,
   HTMLAttributes,
-  LiHTMLAttributes,
   OlHTMLAttributes,
 } from 'react';
 import {
@@ -78,16 +83,21 @@ export const MDXComponents = {
   ),
   ul: (
     props: DetailedHTMLProps<HTMLAttributes<HTMLUListElement>, HTMLUListElement>
-  ) => <chakra.ul apply="mdx.ul" {...props} />,
+  ) => (
+    <UnorderedList
+      apply="mdx.ul"
+      listStylePos="inside"
+      listStyleType="revert"
+      {...props}
+    />
+  ),
   ol: (
     props: DetailedHTMLProps<
       OlHTMLAttributes<HTMLOListElement>,
       HTMLOListElement
     >
-  ) => <chakra.ol apply="mdx.ul" {...props} />,
-  li: (
-    props: DetailedHTMLProps<LiHTMLAttributes<HTMLLIElement>, HTMLLIElement>
-  ) => <chakra.li pb="4px" apply="mdx.li" listStylePos="inside" {...props} />,
+  ) => <OrderedList apply="mdx.ul" listStylePos="inside" {...props} />,
+  li: (props: ListItemProps) => <ListItem pb="4px" apply="mdx.li" {...props} />,
   pre: (
     props: DetailedHTMLProps<HTMLAttributes<HTMLPreElement>, HTMLPreElement>
   ) => {
