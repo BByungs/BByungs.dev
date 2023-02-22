@@ -27,6 +27,15 @@ const NextSeoWrapper = ({ metaData, children }: NextSeoWrapperProps) => {
         <meta property="og:image" content={metaData.thumbnailUrl} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
+        {/* tags */}
+        {metaData.tags.length &&
+          metaData.tags.map((tag) => (
+            <meta
+              key={`article_tag:${tag}`}
+              property="article:tag"
+              content={tag}
+            />
+          ))}
       </Head>
 
       <React.Fragment>

@@ -15,6 +15,7 @@ const BlogPage = ({ post }: BlogLayoutProps) => {
     date: post.date,
     url: post.slug,
     thumbnailUrl: post.thumbnailUrl,
+    tags: post.tags ?? [],
   };
 
   const Component = useMDXComponent(post.body.code);

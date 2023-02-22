@@ -3,6 +3,7 @@ import NextDocument, { Html, Head, Main, NextScript } from 'next/document';
 import { ColorModeScript } from '@chakra-ui/react';
 import theme from '@theme/theme';
 import { CONFIG } from '@config';
+import { METADATA } from '@configs/metaData';
 
 class Document extends NextDocument {
   redirectIEtoEdge() {
@@ -35,6 +36,7 @@ class Document extends NextDocument {
             name="naver-site-verification"
             content={CONFIG.NAVER_SITE_VERIFICATION}
           />
+          <meta name="author" content={METADATA.author} />
         </Head>
         <body>
           <ColorModeScript initialColorMode={theme.config.initialColorMode} />
