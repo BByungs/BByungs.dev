@@ -5,11 +5,9 @@ import { allBlogs } from 'contentlayer/generated';
 import { InferGetStaticPropsType, NextPage } from 'next';
 
 export const getStaticProps = async () => {
-  const blogs = allBlogs;
-
   return {
     props: {
-      blogs,
+      blogs: allBlogs,
     },
   };
 };
