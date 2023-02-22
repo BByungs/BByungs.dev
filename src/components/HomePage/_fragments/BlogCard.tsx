@@ -28,7 +28,7 @@ const BlogCard = ({ blogData }: BlogCardProps) => {
           borderColor="gray.200"
         >
           <Flex flexDir="column">
-            <Text as="h1" color="teal.400" textStyle="large">
+            <Text as="h1" color="teal.400" textStyle="large_bold">
               {blogData.title}
             </Text>
             <Text mb="20px">{blogData.description}</Text>
