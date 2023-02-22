@@ -3,25 +3,24 @@ import { Avatar, Button, Flex, FlexProps, Link, Text } from '@chakra-ui/react';
 
 import GithubIcon from '@components/@common/@Icons/GithubIcon';
 import MailIcon from '@components/@common/@Icons/MailIcon';
+import { METADATA } from '@configs/metaData';
 
 const UserInfo = ({ ...css }: FlexProps) => {
   return (
     <Flex {...css} gap="20px">
       {/* Avatar */}
-      <Avatar
-        boxSize="90px"
-        src="https://user-images.githubusercontent.com/81910935/220374865-f170d3b5-89e1-453b-a6b2-32835bafeb8c.jpeg"
-        name="user-photo"
-      />
+      <Avatar boxSize="90px" src={METADATA.thumbnailUrl} name="user-photo" />
       {/* Description */}
       <Flex flexDir="column" justifyContent="space-between">
         <Flex flexDir="column">
-          <Text textStyle="md_bold">ByungJin Ahn</Text>
+          <Text textStyle="md_bold">{METADATA.author}</Text>
           <Text textStyle="sm">안녕하세요 프론트엔드 개발자 안병진입니다.</Text>
         </Flex>
 
+        {/* Links */}
         <Flex columnGap="5px" alignItems="center">
-          <Link href="https://github.com/BByungs" isExternal>
+          {/* Github */}
+          <Link href={`https://github.com/${METADATA.github}`} isExternal>
             <Button
               variant="unstyled"
               boxSize="24px"
@@ -31,8 +30,8 @@ const UserInfo = ({ ...css }: FlexProps) => {
               <GithubIcon w="100%" h="100%" />
             </Button>
           </Link>
-
-          <Link href="mailto:byungjin0120@gmail.com">
+          {/* Mail */}
+          <Link href={`mailto:${METADATA.email}`}>
             <Button
               variant="unstyled"
               boxSize="30px"
