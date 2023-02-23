@@ -1,12 +1,31 @@
-import React from 'react';
+import React, { useCallback, useMemo } from 'react';
 import { UnorderedList } from '@chakra-ui/react';
 import { HomePageProps } from '@components/@common/@Layout/HomeLayout/HomeLayout';
 import BlogCard from './BlogCard';
+import { Blog } from 'contentlayer/generated';
 
-const BlogList = ({ blogs }: HomePageProps) => {
+interface BlogListProps extends HomePageProps {
+  selectTag: string;
+}
+
+const BlogList = ({ blogs, selectTag }: BlogListProps) => {
+  const callback = useCallback(
+    ({ tags }: Blog) => {
+      if (selectTag !== 'ALL') {
+        return tags ? tags.includes(selectTag) : false;
+      }
+      return true;
+    },
+    [selectTag]
+  );
+
+  const filteredBlogs = useMemo(
+    () => blogs.filter(callback),
+    [blogs, callback]
+  );
   return (
     <UnorderedList m="0">
-      {blogs.map((blog) => (
+      {filteredBlogs.map((blog) => (
         <BlogCard
           key={`${blog._id}_${blog.title}_${blog.date}`}
           blogData={blog}
