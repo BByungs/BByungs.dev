@@ -8,7 +8,7 @@
     "lint": "next lint",
     "sitemap": "node scripts/sitemap.mjs",
     "rss": "node scripts/rss.mjs",
-    "build": "yarn sitemap && yarn rss && next build",
+    "build": "yarn sitemap && next build",
     "prepare": "husky install"
   },
   "dependencies": {
