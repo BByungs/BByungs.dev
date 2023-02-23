@@ -1,6 +1,6 @@
 import React from 'react';
 import { UnorderedList } from '@chakra-ui/react';
-import { HomePageProps } from '../HomePage';
+import { HomePageProps } from '@components/@common/@Layout/HomeLayout/HomeLayout';
 import BlogCard from './BlogCard';
 
 const BlogList = ({ blogs }: HomePageProps) => {
