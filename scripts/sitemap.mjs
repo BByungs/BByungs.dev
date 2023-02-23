@@ -10,6 +10,12 @@ const sitemap = `
   <url>
     <loc>${`https://devahn.vercel.app`}</loc>
   </url>
+  <url>
+    <loc>${`https://devahn.vercel.app/snippets`}</loc>
+  </url>
+  <url>
+    <loc>${`https://devahn.vercel.app/about`}</loc>
+  </url>
     ${pages
       .map((page) => {
         const path = page

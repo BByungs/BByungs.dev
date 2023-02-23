@@ -3,6 +3,12 @@
   <url>
     <loc>https://devahn.vercel.app</loc>
   </url>
+  <url>
+    <loc>https://devahn.vercel.app/snippets</loc>
+  </url>
+  <url>
+    <loc>https://devahn.vercel.app/about</loc>
+  </url>
 
   <url>
     <loc>https://devahn.vercel.app/blog/post-01</loc>
