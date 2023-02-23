@@ -8,8 +8,7 @@
     "lint": "next lint",
     "sitemap": "node scripts/sitemap.mjs",
     "rss": "node scripts/rss.mjs",
-    "build": "yarn sitemap && next build",
-    "prepare": "husky install"
+    "build": "yarn sitemap && next build"
   },
   "dependencies": {
     "@chakra-ui/icons": "^2.0.17",
@@ -42,7 +41,6 @@
     "typescript": "4.9.5"
   },
   "devDependencies": {
-    "husky": "^8.0.3",
     "prettier": "^2.8.4"
   }
 }
