@@ -7,17 +7,16 @@ const ScrollIndicator = () => {
   const scrollHeight = () => {
     const element = document.documentElement;
     const ScrollTop = element.scrollTop || document.body.scrollTop;
-    const ScrollHeight = element.scrollHeight >= 0 ? element.scrollHeight : 0;
-
+    const ScrollHeight = element.scrollHeight || document.body.scrollHeight;
     const percent = (ScrollTop / (ScrollHeight - element.clientHeight)) * 100;
-
-    setWidth(percent);
+    setWidth(percent >= 0 ? percent : 0);
   };
 
   useEffect(() => {
     window.addEventListener('scroll', scrollHeight);
     return () => window.removeEventListener('scroll', scrollHeight);
   }, []);
+
   return (
     <React.Fragment>
       <Box
