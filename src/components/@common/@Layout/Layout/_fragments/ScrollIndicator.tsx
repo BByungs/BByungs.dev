@@ -1,15 +1,28 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Box } from '@chakra-ui/react';
-import useScrollIndicator from '@hooks/useScrollIndicator';
 
 const ScrollIndicator = () => {
-  const { scrollRatio } = useScrollIndicator();
+  const [width, setWidth] = useState(0);
+
+  const scrollHeight = () => {
+    const element = document.documentElement;
+    const ScrollTop = element.scrollTop || document.body.scrollTop;
+    const ScrollHeight = element.scrollHeight || document.body.scrollHeight;
+    const percent = (ScrollTop / (ScrollHeight - element.clientHeight)) * 100;
+
+    setWidth(percent);
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', scrollHeight);
+    return () => window.removeEventListener('scroll', scrollHeight);
+  }, []);
   return (
     <React.Fragment>
       <Box
         borderBottomWidth="6px"
         borderColor="teal.500"
-        w={`${scrollRatio}%`}
+        w={`${width}%`}
         pos="sticky"
         top="0"
         zIndex="sticky"
