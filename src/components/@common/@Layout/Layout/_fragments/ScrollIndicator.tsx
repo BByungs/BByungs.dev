@@ -7,7 +7,8 @@ const ScrollIndicator = () => {
   const scrollHeight = () => {
     const element = document.documentElement;
     const ScrollTop = element.scrollTop || document.body.scrollTop;
-    const ScrollHeight = element.scrollHeight || document.body.scrollHeight;
+    const ScrollHeight = element.scrollHeight >= 0 ? element.scrollHeight : 0;
+
     const percent = (ScrollTop / (ScrollHeight - element.clientHeight)) * 100;
 
     setWidth(percent);
