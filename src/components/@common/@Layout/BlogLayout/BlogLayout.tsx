@@ -8,7 +8,14 @@ export interface BlogLayoutProps {
 }
 
 const BlogLayout = ({ post }: BlogLayoutProps) => {
-  return <Layout p="0px 20px" mt="20px" content={<BlogPage post={post} />} />;
+  return (
+    <Layout
+      p="0px 20px"
+      mt="20px"
+      isScrollIndicator
+      content={<BlogPage post={post} />}
+    />
+  );
 };
 
 export default BlogLayout;

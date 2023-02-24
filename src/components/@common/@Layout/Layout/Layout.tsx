@@ -6,10 +6,12 @@ export interface LayoutProps extends ContainerProps {
   header?: JSX.Element;
   footer?: JSX.Element;
   content: JSX.Element;
+  isScrollIndicator?: boolean;
 }
 
 const Layout = ({
-  header = <MainHeader />,
+  isScrollIndicator = false,
+  header = <MainHeader isScrollIndicator={isScrollIndicator} />,
   content,
   footer,
   ...css
