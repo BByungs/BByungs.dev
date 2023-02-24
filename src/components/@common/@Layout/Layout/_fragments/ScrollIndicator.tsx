@@ -12,6 +12,11 @@ const ScrollIndicator = () => {
         borderColor="teal.500"
         w={`${scrollRatio}%`}
         pos="absolute"
+        sx={{
+          transform: 'translate3d(0,0,0)',
+          '-webkit-transform': 'translateZ(0)',
+          '-webkit-overflow-scrolling': 'touch',
+        }}
       />
       <style global jsx>{`
         body {

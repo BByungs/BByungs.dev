@@ -21,6 +21,11 @@ const MainHeader = ({ isScrollIndicator }: { isScrollIndicator: boolean }) => {
         top="0"
         bg={headerBg}
         h="66px"
+        sx={{
+          transform: 'translate3d(0,0,0)',
+          '-webkit-transform': 'translateZ(0)',
+          '-webkit-overflow-scrolling': 'touch',
+        }}
       >
         {isScrollIndicator && <ScrollIndicator />}
         <Flex
