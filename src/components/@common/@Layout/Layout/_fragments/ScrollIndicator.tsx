@@ -7,7 +7,7 @@ const ScrollIndicator = () => {
     <Box
       h="66px"
       bgColor="transparent"
-      borderBottomWidth="5px"
+      borderBottomWidth="6px"
       borderColor="teal.500"
       w={`${scrollRatio}%`}
       pos="absolute"
