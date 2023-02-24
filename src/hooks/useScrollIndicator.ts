@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 
 const useScrollIndicator = () => {
   const [scrollRatio, setScrollRatio] = useState<number>(0);
-
   useEffect(() => {
     let timeoutId: null | ReturnType<typeof setTimeout> = null;
     const throttleTime: number = 50;
@@ -24,14 +23,13 @@ const useScrollIndicator = () => {
       setScrollRatio(scrolled);
     };
 
-    window.addEventListener('scroll', () =>
-      throttle(scrollProgress, throttleTime)
-    );
-    return () =>
-      window.removeEventListener('scroll', () =>
-        throttle(scrollProgress, throttleTime)
-      );
-  }, []);
+    const scrollCallback = () => {
+      if (scrollRatio >= 100) return;
+      throttle(scrollProgress, throttleTime);
+    };
+    window.addEventListener('scroll', scrollCallback);
+    return () => window.removeEventListener('scroll', () => scrollCallback);
+  }, [scrollRatio]);
 
   return { scrollRatio };
 };
