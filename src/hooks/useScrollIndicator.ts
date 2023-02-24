@@ -4,7 +4,7 @@ const useScrollIndicator = () => {
   const [scrollRatio, setScrollRatio] = useState<number>(0);
   useEffect(() => {
     let timeoutId: null | ReturnType<typeof setTimeout> = null;
-    const throttleTime: number = 50;
+    const throttleTime: number = 25;
 
     const throttle = (callback: () => void, time: number) => {
       if (timeoutId) return;
