@@ -24,11 +24,11 @@ const useScrollIndicator = () => {
     };
 
     const scrollCallback = () => {
-      if (scrollRatio >= 100) return;
       throttle(scrollProgress, throttleTime);
     };
+
     window.addEventListener('scroll', scrollCallback);
-    return () => window.removeEventListener('scroll', () => scrollCallback);
+    return () => window.removeEventListener('scroll', scrollCallback);
   }, [scrollRatio]);
 
   return { scrollRatio };
