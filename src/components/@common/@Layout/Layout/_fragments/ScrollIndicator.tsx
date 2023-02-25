@@ -23,9 +23,9 @@ const ScrollIndicator = () => {
         borderBottomWidth="6px"
         borderColor="teal.500"
         w={`${width}%`}
-        pos="sticky"
+        pos="fixed"
         top="0"
-        zIndex="sticky"
+        zIndex="100"
       />
       <style global jsx>{`
         body {
