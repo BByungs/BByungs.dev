@@ -1,8 +1,20 @@
 import React from 'react';
-import Link from 'next/link';
-import { ListItem, Text, UnorderedList, useColorMode } from '@chakra-ui/react';
+import { UnorderedList, useColorMode } from '@chakra-ui/react';
 import { NAVBAR_DATA } from '@constants/navBarData';
 import { useRouter } from 'next/router';
+import NavItem from './NavItem';
+
+const findActivePage = (pathname: string, pageName: string) => {
+  const _pageName = pageName.toLowerCase();
+  if (
+    pathname === '/' ||
+    pathname.includes('page') ||
+    pathname === '/[...slug]'
+  ) {
+    return _pageName === 'blog';
+  }
+  return pathname.includes(_pageName);
+};
 
 const NavBar = () => {
   const { pathname } = useRouter();
@@ -13,26 +25,19 @@ const NavBar = () => {
       {NAVBAR_DATA.map(({ linkName, link }, idx, allArr) => {
         const isLastIdx = idx === allArr.length - 1;
         return (
-          <ListItem
-            float="left"
+          <NavItem
             key={`NAVBAR_${linkName}`}
             mr={isLastIdx ? '0px' : '20px'}
-          >
-            <Link href={link}>
-              <Text
-                fontWeight="bold"
-                color={
-                  pathname === link
-                    ? 'teal.500'
-                    : colorMode === 'light'
-                    ? 'black'
-                    : 'white'
-                }
-              >
-                {linkName}
-              </Text>
-            </Link>
-          </ListItem>
+            linkName={linkName}
+            link={link}
+            color={
+              findActivePage(pathname, linkName)
+                ? 'teal.500'
+                : colorMode === 'light'
+                ? 'black'
+                : 'white'
+            }
+          />
         );
       })}
     </UnorderedList>
