@@ -1,6 +1,7 @@
 import React from 'react';
+import { Snippets } from 'contentlayer/generated';
 
-const SnippetsPage = () => {
+const SnippetsPage = ({ snippetList }: { snippetList: Snippets[] }) => {
   return <div>SnippetsPage</div>;
 };
 
