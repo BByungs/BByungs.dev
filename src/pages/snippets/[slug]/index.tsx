@@ -44,6 +44,7 @@ const SnippetSlug: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
   <Layout
     p="0px 20px"
     mt="20px"
+    isScrollIndicator
     content={<SnippetSlugPage snippet={snippet} />}
   />
 );
