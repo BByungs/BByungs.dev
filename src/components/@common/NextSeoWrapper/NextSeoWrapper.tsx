@@ -11,7 +11,7 @@ interface NextSeoWrapperProps {
 
 const NextSeoWrapper = ({ metaData, children }: NextSeoWrapperProps) => {
   const isHome = useMemo(() => {
-    return metaData.url === '/';
+    return metaData.url === '/' || metaData.url === '/snippets';
   }, [metaData.url]);
   const { colorMode } = useColorMode();
 
