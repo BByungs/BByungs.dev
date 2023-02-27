@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import NextSeoWrapper from '@components/@common/NextSeoWrapper';
 import { METADATA } from '@configs/metaData';
-import { BlogList, TagList, UserInfo } from './_fragments';
+import { UserInfo } from './_fragments';
 import { Blog } from 'contentlayer/generated';
+import TagList from '@components/@common/TagList';
+import PostList from '@components/@common/PostList';
 
 export interface HomePageProps {
   blogs: Blog[];
@@ -23,9 +25,14 @@ const HomePage = ({ blogs }: HomePageProps) => {
       {/* User Info */}
       <UserInfo mb="40px" />
       {/* Tag List */}
-      <TagList tagList={tagList} handleTag={handleTag} selectTag={selectTag} />
+      <TagList
+        tagList={tagList}
+        handleTag={handleTag}
+        selectTag={selectTag}
+        mb="40px"
+      />
       {/* Blog List */}
-      <BlogList blogs={blogs} selectTag={selectTag} />
+      <PostList posts={blogs} selectTag={selectTag} />
     </NextSeoWrapper>
   );
 };
