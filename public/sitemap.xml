@@ -21,4 +21,16 @@
   <url>
     <loc>https://devahn.vercel.app/blog/typescript</loc>
   </url>
+
+  <url>
+    <loc>https://devahn.vercel.app/snippets/snippet-01</loc>
+  </url>
+
+  <url>
+    <loc>https://devahn.vercel.app/snippets/snippet-02</loc>
+  </url>
+
+  <url>
+    <loc>https://devahn.vercel.app/snippets/snippet-03</loc>
+  </url>
 </urlset>
