@@ -1,14 +1,19 @@
 const textStyles = {
-  large: {
-    fontWeight: 'normal',
+  xl: {
+    fontSize: '28px',
+  },
+  xl_bold: {
+    fontSize: '28px',
+    fontWeight: 'bold',
+  },
+  lg: {
     fontSize: '24px',
   },
-  large_bold: {
+  lg_bold: {
     fontWeight: 'bold',
     fontSize: '24px',
   },
   md: {
-    fontWeight: 'normal',
     fontSize: '20px',
   },
   md_bold: {
@@ -16,7 +21,6 @@ const textStyles = {
     fontSize: '20px',
   },
   sm: {
-    fontWeight: 'normal',
     fontSize: '12px',
   },
   sm_bold: {
