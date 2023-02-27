@@ -1,8 +1,9 @@
 import React, { useCallback, useMemo } from 'react';
 import { UnorderedList } from '@chakra-ui/react';
-import { HomePageProps } from '@components/@common/@Layout/HomeLayout/HomeLayout';
+
 import BlogCard from './BlogCard';
 import { Blog } from 'contentlayer/generated';
+import { HomePageProps } from '../HomePage';
 
 interface BlogListProps extends HomePageProps {
   selectTag: string;

@@ -2,7 +2,11 @@ import React, { useState } from 'react';
 import NextSeoWrapper from '@components/@common/NextSeoWrapper';
 import { METADATA } from '@configs/metaData';
 import { BlogList, TagList, UserInfo } from './_fragments';
-import { HomePageProps } from '@components/@common/@Layout/HomeLayout/HomeLayout';
+import { Blog } from 'contentlayer/generated';
+
+export interface HomePageProps {
+  blogs: Blog[];
+}
 
 const HomePage = ({ blogs }: HomePageProps) => {
   const metadata = { ...METADATA, url: '/' };

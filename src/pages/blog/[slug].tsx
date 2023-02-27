@@ -1,4 +1,5 @@
-import BlogLayout from '@components/@common/@Layout/BlogLayout/BlogLayout';
+import Layout from '@components/@common/@Layout/Layout';
+import BlogPage from '@components/BlogPage';
 import { allBlogs, Blog } from 'contentlayer/generated';
 import {
   GetStaticPathsResult,
@@ -33,10 +34,15 @@ export const getStaticProps = async ({
       };
 };
 
-const BlogPage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
+const BlogSlug: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
   post,
-}) => {
-  return <BlogLayout post={post} />;
-};
+}) => (
+  <Layout
+    p="0px 20px"
+    mt="20px"
+    isScrollIndicator
+    content={<BlogPage post={post} />}
+  />
+);
 
-export default BlogPage;
+export default BlogSlug;
