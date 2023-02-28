@@ -1,8 +1,9 @@
 import React from 'react';
 import { Blog, Snippets } from 'contentlayer/generated';
-import { Flex, ListItem, Text, Image } from '@chakra-ui/react';
+import { Flex, ListItem, Text, useColorModeValue } from '@chakra-ui/react';
 import Link from 'next/link';
 import usDateString from '@utils/date/usDateString';
+import dayjs from 'dayjs';
 
 interface PostCardProps<T> {
   postData: T;
@@ -16,24 +17,29 @@ const PostCard = <T extends Blog | Snippets>({
       listStyleType="none"
       css={{
         ':not(:last-child)': {
-          marginBottom: '40px',
+          marginBottom: '20px',
         },
       }}
     >
       <Link href={`/${postData.type.toLowerCase()}/${postData.slug}`}>
         <Flex
           alignItems="center"
-          borderBottomWidth="2px"
-          pb="30px"
-          borderColor="gray.200"
+          border="1px solid"
+          borderRadius="10px"
+          borderColor="#eaeaea"
+          p="10px"
         >
           <Flex flexDir="column">
-            <Text as="h1" color="teal.400" textStyle="lg_bold">
+            <Text as="h1" color="teal.400" textStyle="md_bold">
               {postData.title}
             </Text>
-            <Text mb="20px">{postData.description}</Text>
+            <Text mb="20px" textStyle="smlg_bold">
+              {postData.description}
+            </Text>
 
-            <Text>{usDateString(postData.date)}</Text>
+            <Text textStyle="sm">
+              {dayjs(postData.date).format('YY.MM.DD')}
+            </Text>
           </Flex>
         </Flex>
       </Link>
