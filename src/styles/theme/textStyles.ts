@@ -20,6 +20,13 @@ const textStyles = {
     fontWeight: 'bold',
     fontSize: '20px',
   },
+  smlg: {
+    fontSize: '16px',
+  },
+  smlg_bold: {
+    fontSize: '16px',
+    fontWeight: 'bold',
+  },
   sm: {
     fontSize: '12px',
   },
