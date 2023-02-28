@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, ContainerProps } from '@chakra-ui/react';
-import { MainHeader, ScrollIndicator } from './_fragments';
+import { MainFooter, MainHeader, ScrollIndicator } from './_fragments';
 
 export interface LayoutProps extends ContainerProps {
   header?: JSX.Element;
@@ -13,21 +13,26 @@ const Layout = ({
   isScrollIndicator = false,
   header = <MainHeader />,
   content,
-  footer,
+  footer = <MainFooter />,
   ...css
 }: LayoutProps) => {
   return (
-    <React.Fragment>
+    <>
       {isScrollIndicator && <ScrollIndicator />}
       {/* Header */}
       {header}
       {/* Content */}
-      <Container {...css} as="main">
+      <Container
+        {...css}
+        as="main"
+        mb="40px"
+        minH={{ base: 'calc(100vh - 178px)', sm: 'calc(100vh - 160px)' }}
+      >
         {content}
       </Container>
       {/* Footer */}
       {footer}
-    </React.Fragment>
+    </>
   );
 };
 
