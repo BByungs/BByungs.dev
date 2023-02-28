@@ -7,18 +7,9 @@ import NavBar from './NavBar';
 import SearchButton from './SearchButton';
 
 const MainHeader = () => {
-  const headerBg = useColorModeValue('white', 'gray.800');
-  const borderBottomColor = useColorModeValue('#e0e0e0', 'white');
-
   return (
     <React.Fragment>
-      <Flex
-        as="header"
-        borderColor={borderBottomColor}
-        w="100%"
-        bg={headerBg}
-        h="66px"
-      >
+      <Flex as="header" w="100%" h="66px">
         <Flex
           alignItems="center"
           justifyContent="space-between"
