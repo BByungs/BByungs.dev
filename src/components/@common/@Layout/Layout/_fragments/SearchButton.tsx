@@ -1,9 +1,9 @@
-import React, { useCallback, useEffect } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Button, Flex, Icon, Text, useDisclosure } from '@chakra-ui/react';
 import { FiCommand } from 'react-icons/fi';
 import SearchModal from './SearchModal';
 
-const SearchButton = () => {
+const SearchButton = ({ checkMcIntosh }: { checkMcIntosh: boolean }) => {
   const {
     isOpen: isSearchOpen,
     onOpen: openSearch,
@@ -12,21 +12,26 @@ const SearchButton = () => {
 
   const handleKeyPress = useCallback(
     (event: KeyboardEvent) => {
-      // todo window일땐 시작버튼 , mac일땐 command+k로 해야 함
-      /**
-       * if (window) {
-       *  window key 감지 했을때 openSearch()
-       * } else {
-       *  command+k 감지 했을때 openSearch
-       * }
-       */
+      const McIntoshHotKey = event.metaKey && event.key === 'k';
+      const WindowsHotKey = event.ctrlKey && event.key === 'k';
 
-      // Command + K 버튼을 눌렀을때
-      if (event.metaKey && event.key === 'k') {
-        isSearchOpen ? closeSearch() : openSearch();
+      if (checkMcIntosh !== null) {
+        /**
+         * @Description Mac, Ios, IPad, IPod...환경이면서 동시에 command + k를 눌렀을때 동작
+         */
+        if (McIntoshHotKey) {
+          isSearchOpen ? closeSearch() : openSearch();
+        }
+      } else {
+        /**
+         * @Description 위와 다른환경이면서 동시에 Ctrl + k를 눌렀을때 동작
+         */
+        if (WindowsHotKey) {
+          isSearchOpen ? closeSearch() : openSearch();
+        }
       }
     },
-    [closeSearch, isSearchOpen, openSearch]
+    [closeSearch, isSearchOpen, openSearch, checkMcIntosh]
   );
 
   useEffect(() => {
@@ -56,8 +61,15 @@ const SearchButton = () => {
           py="2px"
           px="5px"
         >
-          <Icon as={FiCommand} color="black" boxSize="12px" />
-          <Text color="black">K</Text>
+          <Icon
+            as={FiCommand}
+            color="black"
+            boxSize="12px"
+            display={checkMcIntosh !== null ? 'block' : 'none'}
+          />
+          <Text color="black" textStyle="sm_bold">
+            {`${checkMcIntosh !== null ? '+' : 'Ctrl +'} K`}
+          </Text>
         </Flex>
       </Button>
 

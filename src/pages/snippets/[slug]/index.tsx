@@ -9,6 +9,7 @@ import {
 } from 'next';
 
 import { allSnippets, Snippets } from 'contentlayer/generated';
+import { checkMcIntosh } from '@utils/isMcintosh';
 
 export const getStaticPaths = async (): Promise<GetStaticPathsResult> => {
   return {
@@ -20,9 +21,10 @@ export const getStaticPaths = async (): Promise<GetStaticPathsResult> => {
 export const getStaticProps = async ({
   params,
 }: GetStaticPropsContext): Promise<
-  GetStaticPropsResult<{ snippet: Snippets }>
+  GetStaticPropsResult<{ snippet: Snippets; checkMcIntosh: boolean }>
 > => {
   const snippet = allSnippets.find((p) => p.slug === params?.slug);
+  const _checkMcIntosh = checkMcIntosh;
 
   return typeof snippet === 'undefined'
     ? {
@@ -34,17 +36,20 @@ export const getStaticProps = async ({
     : {
         props: {
           snippet,
+          checkMcIntosh: _checkMcIntosh,
         },
       };
 };
 
 const SnippetSlug: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
   snippet,
+  checkMcIntosh,
 }) => (
   <Layout
     p="0px 20px"
     mt="20px"
     isScrollIndicator
+    checkMcIntosh={checkMcIntosh}
     content={<SnippetSlugPage snippet={snippet} />}
   />
 );

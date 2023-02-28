@@ -25,7 +25,13 @@ interface SearchModalProps {
 }
 
 const SearchModal = ({ isOpen, onClose }: SearchModalProps) => {
-  //   console.log('@@allDocuments : ', allDocuments);
+  /**
+   * @Todo make a Function to handle color mode
+   * @example
+   * const handleColorMode = () => {
+   *
+   * }
+   */
 
   return (
     <Modal isOpen={isOpen} onClose={onClose} isCentered>

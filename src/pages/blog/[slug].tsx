@@ -1,5 +1,6 @@
 import Layout from '@components/@common/@Layout/Layout';
 import BlogPage from '@components/BlogPage';
+import { checkMcIntosh } from '@utils/isMcintosh';
 import { allBlogs, Blog } from 'contentlayer/generated';
 import {
   GetStaticPathsResult,
@@ -18,8 +19,11 @@ export const getStaticPaths = async (): Promise<GetStaticPathsResult> => {
 
 export const getStaticProps = async ({
   params,
-}: GetStaticPropsContext): Promise<GetStaticPropsResult<{ post: Blog }>> => {
+}: GetStaticPropsContext): Promise<
+  GetStaticPropsResult<{ post: Blog; checkMcIntosh: boolean }>
+> => {
   const post = allBlogs.find((p) => p.slug === params?.slug);
+  const _checkMcIntosh = checkMcIntosh;
   return typeof post === 'undefined'
     ? {
         redirect: {
@@ -30,17 +34,20 @@ export const getStaticProps = async ({
     : {
         props: {
           post,
+          checkMcIntosh: _checkMcIntosh,
         },
       };
 };
 
 const BlogSlug: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
   post,
+  checkMcIntosh,
 }) => (
   <Layout
     p="0px 20px"
     mt="20px"
     isScrollIndicator
+    checkMcIntosh={checkMcIntosh}
     content={<BlogPage post={post} />}
   />
 );
