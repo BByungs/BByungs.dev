@@ -8,6 +8,7 @@ import {
   DrawerOverlay,
   Flex,
   Icon,
+  useColorModeValue,
 } from '@chakra-ui/react';
 import { RxHamburgerMenu } from 'react-icons/rx';
 import SearchButton from './SearchButton';
@@ -31,7 +32,7 @@ const MobileMenuDrawer = ({
       size="full"
     >
       <DrawerOverlay />
-      <DrawerContent w="100%">
+      <DrawerContent w="100%" bgColor={useColorModeValue('white', '#1A202C')}>
         <DrawerHeader
           w="100%"
           h="66px"
