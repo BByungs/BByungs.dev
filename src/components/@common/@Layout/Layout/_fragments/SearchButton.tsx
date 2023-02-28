@@ -10,31 +10,37 @@ const SearchButton = () => {
     onClose: closeSearch,
   } = useDisclosure();
 
+  const [checkMcIntosh, setCheckMcIntosh] = useState<boolean>(true);
+  useEffect(() => {
+    if (typeof navigator === 'undefined') return;
+    const isMac = /(Mac|iPhone|iPod|iPad)/i.test(navigator.platform);
+    if (!isMac) {
+      setCheckMcIntosh(false);
+    }
+  }, []);
+
   const handleKeyPress = useCallback(
     (event: KeyboardEvent) => {
       const McIntoshHotKey = event.metaKey && event.key === 'k';
-      // const WindowsHotKey = event.ctrlKey && event.key === 'k';
+      const WindowsHotKey = event.ctrlKey && event.key === 'k';
 
-      // if (checkMcIntosh !== null) {
-      //   /**
-      //    * @Description Mac, Ios, IPad, IPod...환경이면서 동시에 command + k를 눌렀을때 동작
-      //    */
-      //   if (McIntoshHotKey) {
-      //     isSearchOpen ? closeSearch() : openSearch();
-      //   }
-      // } else {
-      //   /**
-      //    * @Description 위와 다른환경이면서 동시에 Ctrl + k를 눌렀을때 동작
-      //    */
-      //   if (WindowsHotKey) {
-      //     isSearchOpen ? closeSearch() : openSearch();
-      //   }
-      // }
-      if (McIntoshHotKey) {
-        isSearchOpen ? closeSearch() : openSearch();
+      if (checkMcIntosh !== null) {
+        /**
+         * @Description Mac, Ios, IPad, IPod...환경이면서 동시에 command + k를 눌렀을때 동작
+         */
+        if (McIntoshHotKey) {
+          isSearchOpen ? closeSearch() : openSearch();
+        }
+      } else {
+        /**
+         * @Description 위와 다른환경이면서 동시에 Ctrl + k를 눌렀을때 동작
+         */
+        if (WindowsHotKey) {
+          isSearchOpen ? closeSearch() : openSearch();
+        }
       }
     },
-    [closeSearch, isSearchOpen, openSearch]
+    [closeSearch, isSearchOpen, openSearch, checkMcIntosh]
   );
 
   useEffect(() => {
@@ -64,9 +70,14 @@ const SearchButton = () => {
           py="2px"
           px="5px"
         >
-          <Icon as={FiCommand} color="black" boxSize="12px" />
+          <Icon
+            as={FiCommand}
+            color="black"
+            boxSize="12px"
+            display={checkMcIntosh ? 'block' : 'none'}
+          />
           <Text color="black" textStyle="sm_bold">
-            {`+ K`}
+            {`${checkMcIntosh ? '+' : 'Ctrl +'} K`}
           </Text>
         </Flex>
       </Button>
