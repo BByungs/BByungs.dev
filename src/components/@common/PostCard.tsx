@@ -1,9 +1,9 @@
 import React from 'react';
 import { Blog, Snippets } from 'contentlayer/generated';
-import { Flex, ListItem, Text, useColorModeValue } from '@chakra-ui/react';
+import { Flex, ListItem, Text } from '@chakra-ui/react';
 import Link from 'next/link';
 import usDateString from '@utils/date/usDateString';
-import dayjs from 'dayjs';
+import { CalendarIcon } from '@chakra-ui/icons';
 
 interface PostCardProps<T> {
   postData: T;
@@ -30,16 +30,32 @@ const PostCard = <T extends Blog | Snippets>({
           p="10px"
         >
           <Flex flexDir="column">
+            {/* Title */}
             <Text as="h1" color="teal.400" textStyle="md_bold">
               {postData.title}
             </Text>
+            {/* Description */}
             <Text mb="20px" textStyle="smlg_bold">
               {postData.description}
             </Text>
-
-            <Text textStyle="sm">
-              {dayjs(postData.date).format('YY.MM.DD')}
-            </Text>
+            {/* Date */}
+            <Flex alignItems="center" gap="7px">
+              <CalendarIcon boxSize="13px" />
+              <Text textStyle="sm">{usDateString(postData.date)}</Text>
+            </Flex>
+            {/* Tags */}
+            {postData.tags && (
+              <Flex gap="5px" mt="10px" flexWrap="wrap">
+                {postData.tags.map((tag, idx, allArr) => {
+                  const isLastIdx = idx === allArr.length - 1;
+                  return (
+                    <Text key={`card_tag:${tag}`} textStyle="sm_bold">
+                      {isLastIdx ? tag : `${tag} , `}
+                    </Text>
+                  );
+                })}
+              </Flex>
+            )}
           </Flex>
         </Flex>
       </Link>
