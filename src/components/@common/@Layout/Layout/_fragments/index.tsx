@@ -7,6 +7,7 @@ import MainFooter from './MainFooter';
 import SearchButton from './SearchButton';
 import NavList from './NavList';
 import MobileMenuDrawer from './MobileMenuDrawer';
+import SearchModal from './SearchModal';
 
 export {
   MainHeader,
@@ -18,4 +19,5 @@ export {
   SearchButton,
   NavList,
   MobileMenuDrawer,
+  SearchModal,
 };
