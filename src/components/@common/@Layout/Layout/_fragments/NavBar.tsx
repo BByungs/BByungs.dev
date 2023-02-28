@@ -4,7 +4,7 @@ import NavList from './NavList';
 import { Button, Icon, useDisclosure } from '@chakra-ui/react';
 import MobileMenuDrawer from './MobileMenuDrawer';
 
-const NavBar = ({ checkMcIntosh }: { checkMcIntosh: boolean }) => {
+const NavBar = () => {
   const {
     isOpen: isDrawerOpen,
     onOpen: openDrawer,
@@ -39,11 +39,7 @@ const NavBar = ({ checkMcIntosh }: { checkMcIntosh: boolean }) => {
           display={{ base: 'block', mobile: 'none' }}
         />
       </Button>
-      <MobileMenuDrawer
-        checkMcIntosh={checkMcIntosh}
-        handleClose={closeDrawer}
-        isDrawerOpen={isDrawerOpen}
-      />
+      <MobileMenuDrawer handleClose={closeDrawer} isDrawerOpen={isDrawerOpen} />
     </React.Fragment>
   );
 };

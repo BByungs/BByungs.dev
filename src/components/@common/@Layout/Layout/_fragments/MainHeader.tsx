@@ -6,7 +6,7 @@ import ColorModeButton from './ColorModeButton';
 import NavBar from './NavBar';
 import SearchButton from './SearchButton';
 
-const MainHeader = ({ checkMcIntosh }: { checkMcIntosh: boolean }) => {
+const MainHeader = () => {
   const headerBg = useColorModeValue('white', 'gray.800');
   const borderBottomColor = useColorModeValue('#e0e0e0', 'white');
 
@@ -26,9 +26,9 @@ const MainHeader = ({ checkMcIntosh }: { checkMcIntosh: boolean }) => {
           mx="auto"
           px="20px"
         >
-          <NavBar checkMcIntosh={checkMcIntosh} />
+          <NavBar />
           <Flex alignItems="center" columnGap="10px" mt="5px">
-            <SearchButton checkMcIntosh={checkMcIntosh} />
+            <SearchButton />
             <ColorModeButton />
           </Flex>
         </Flex>

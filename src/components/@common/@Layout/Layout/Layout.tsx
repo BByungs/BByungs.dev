@@ -7,13 +7,11 @@ export interface LayoutProps extends ContainerProps {
   footer?: JSX.Element;
   content: JSX.Element;
   isScrollIndicator?: boolean;
-  checkMcIntosh: boolean;
 }
 
 const Layout = ({
   isScrollIndicator = false,
-  checkMcIntosh,
-  header = <MainHeader checkMcIntosh={checkMcIntosh} />,
+  header = <MainHeader />,
   content,
   footer = <MainFooter />,
   ...css
