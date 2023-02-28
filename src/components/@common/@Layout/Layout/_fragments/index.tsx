@@ -4,6 +4,7 @@ import ColorModeButton from './ColorModeButton';
 import ScrollIndicator from './ScrollIndicator';
 import NavItem from './NavItem';
 import MainFooter from './MainFooter';
+import SearchButton from './SearchButton';
 
 export {
   MainHeader,
@@ -12,4 +13,5 @@ export {
   ScrollIndicator,
   NavItem,
   MainFooter,
+  SearchButton,
 };
