@@ -26,10 +26,9 @@ const MainHeader = ({ checkMcIntosh }: { checkMcIntosh: boolean }) => {
           mx="auto"
           px="20px"
         >
-          <NavBar />
+          <NavBar checkMcIntosh={checkMcIntosh} />
           <Flex alignItems="center" columnGap="10px" mt="5px">
             <SearchButton checkMcIntosh={checkMcIntosh} />
-
             <ColorModeButton />
           </Flex>
         </Flex>

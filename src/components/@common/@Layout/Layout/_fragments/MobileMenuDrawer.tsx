@@ -18,11 +18,13 @@ import NavList from './NavList';
 interface MobileMenuDrawerProps {
   isDrawerOpen: boolean;
   handleClose: () => void;
+  checkMcIntosh: boolean;
 }
 
 const MobileMenuDrawer = ({
   handleClose,
   isDrawerOpen,
+  checkMcIntosh,
 }: MobileMenuDrawerProps) => {
   return (
     <Drawer
@@ -58,7 +60,7 @@ const MobileMenuDrawer = ({
             />
           </Button>
           <Flex alignItems="center" columnGap="10px" mt="5px">
-            <SearchButton />
+            <SearchButton checkMcIntosh={checkMcIntosh} />
             <ColorModeButton />
           </Flex>
         </DrawerHeader>
