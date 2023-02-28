@@ -21,23 +21,14 @@ const SearchButton = () => {
 
   const handleKeyPress = useCallback(
     (event: KeyboardEvent) => {
-      const McIntoshHotKey = event.metaKey && event.key === 'k';
-      const WindowsHotKey = event.ctrlKey && event.key === 'k';
-
-      if (checkMcIntosh) {
-        /**
-         * @Description Mac, Ios, IPad, IPod...환경이면서 동시에 command + k를 눌렀을때 동작
-         */
-        if (McIntoshHotKey) {
-          isSearchOpen ? closeSearch() : openSearch();
-        }
-      } else {
-        /**
-         * @Description 위와 다른환경이면서 동시에 Ctrl + k를 눌렀을때 동작
-         */
-        if (WindowsHotKey) {
-          isSearchOpen ? closeSearch() : openSearch();
-        }
+      const hotkey = checkMcIntosh ? 'metaKey' : 'ctrlKey';
+      /**
+       * @Description Mac, Ios, IPad, IPod...환경이면서 동시에 command + k를 눌렀을때 동작
+       * @Description 위와 다른환경이면서 동시에 Ctrl + k를 눌렀을때 동작
+       */
+      if (event[hotkey] && event.key.toLowerCase() === 'k') {
+        event.preventDefault();
+        isSearchOpen ? closeSearch() : openSearch();
       }
     },
     [closeSearch, isSearchOpen, openSearch, checkMcIntosh]
