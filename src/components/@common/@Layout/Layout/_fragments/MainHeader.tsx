@@ -1,33 +1,41 @@
+import React from 'react';
 import { Flex, useColorModeValue } from '@chakra-ui/react';
 
 import { maxWidth } from '@constants/maxWidth';
 import ColorModeButton from './ColorModeButton';
 import NavBar from './NavBar';
+import SearchButton from './SearchButton';
 
 const MainHeader = () => {
   const headerBg = useColorModeValue('white', 'gray.800');
   const borderBottomColor = useColorModeValue('#e0e0e0', 'white');
 
   return (
-    <Flex
-      as="header"
-      borderColor={borderBottomColor}
-      w="100%"
-      bg={headerBg}
-      h="66px"
-    >
+    <React.Fragment>
       <Flex
-        alignItems="center"
-        justifyContent="space-between"
-        columnGap="20px"
-        w={maxWidth}
-        mx="auto"
-        px="20px"
+        as="header"
+        borderColor={borderBottomColor}
+        w="100%"
+        bg={headerBg}
+        h="66px"
       >
-        <NavBar />
-        <ColorModeButton />
+        <Flex
+          alignItems="center"
+          justifyContent="space-between"
+          columnGap="20px"
+          w={maxWidth}
+          mx="auto"
+          px="20px"
+        >
+          <NavBar />
+
+          <Flex alignItems="center" columnGap="10px" mt="5px">
+            <SearchButton />
+            <ColorModeButton />
+          </Flex>
+        </Flex>
       </Flex>
-    </Flex>
+    </React.Fragment>
   );
 };
 
