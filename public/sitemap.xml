@@ -11,6 +11,18 @@
   </url>
 
   <url>
+    <loc>https://devahn.vercel.app/blog/post-01</loc>
+  </url>
+
+  <url>
+    <loc>https://devahn.vercel.app/blog/post-02</loc>
+  </url>
+
+  <url>
+    <loc>https://devahn.vercel.app/blog/typescript</loc>
+  </url>
+
+  <url>
     <loc>https://devahn.vercel.app/snippets/post-01</loc>
   </url>
 
@@ -32,17 +44,5 @@
 
   <url>
     <loc>https://devahn.vercel.app/snippets/typescript</loc>
-  </url>
-
-  <url>
-    <loc>https://devahn.vercel.app/blog/post-01</loc>
-  </url>
-
-  <url>
-    <loc>https://devahn.vercel.app/blog/post-02</loc>
-  </url>
-
-  <url>
-    <loc>https://devahn.vercel.app/blog/typescript</loc>
   </url>
 </urlset>
