@@ -24,7 +24,7 @@ const SearchButton = () => {
       const McIntoshHotKey = event.metaKey && event.key === 'k';
       const WindowsHotKey = event.ctrlKey && event.key === 'k';
 
-      if (checkMcIntosh !== null) {
+      if (checkMcIntosh) {
         /**
          * @Description Mac, Ios, IPad, IPod...환경이면서 동시에 command + k를 눌렀을때 동작
          */
