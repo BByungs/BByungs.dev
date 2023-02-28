@@ -1,6 +1,6 @@
 import Layout from '@components/@common/@Layout/Layout';
 import HomePage from '@components/HomePage/HomePage';
-import { checkMcIntosh } from '@utils/isMcintosh';
+import { checkMcIntosh } from '@utils/isMcIntosh';
 import { allBlogs } from 'contentlayer/generated';
 import { InferGetStaticPropsType, NextPage } from 'next';
 

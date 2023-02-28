@@ -1,6 +1,6 @@
 import Layout from '@components/@common/@Layout/Layout';
 import AboutPage from '@components/AboutPage';
-import { checkMcIntosh } from '@utils/isMcintosh';
+import { checkMcIntosh } from '@utils/isMcIntosh';
 import { InferGetStaticPropsType, NextPage } from 'next';
 
 export const getStaticProps = async () => {

@@ -1,6 +1,6 @@
 import Layout from '@components/@common/@Layout/Layout';
 import BlogPage from '@components/BlogPage';
-import { checkMcIntosh } from '@utils/isMcintosh';
+import { checkMcIntosh } from '../../utils/isMcIntosh';
 import { allBlogs, Blog } from 'contentlayer/generated';
 import {
   GetStaticPathsResult,

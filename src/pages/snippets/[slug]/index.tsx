@@ -7,9 +7,8 @@ import {
   InferGetStaticPropsType,
   NextPage,
 } from 'next';
-
+import { checkMcIntosh } from '@utils/isMcIntosh';
 import { allSnippets, Snippets } from 'contentlayer/generated';
-import { checkMcIntosh } from '@utils/isMcintosh';
 
 export const getStaticPaths = async (): Promise<GetStaticPathsResult> => {
   return {
