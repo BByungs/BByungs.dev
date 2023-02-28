@@ -12,6 +12,7 @@ import {
   HTMLAttributes,
   OlHTMLAttributes,
 } from 'react';
+import { MDXComponentstype } from './type';
 import {
   CodeBlock,
   InlineCode,
@@ -22,7 +23,7 @@ import {
 } from './_fragments';
 const { chakra, Kbd, Alert } = Chakra;
 
-export const MDXComponents = {
+export const MDXComponents: MDXComponentstype = {
   ...Chakra,
   h1: (
     props: DetailedHTMLProps<
