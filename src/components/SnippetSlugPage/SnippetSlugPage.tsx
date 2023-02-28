@@ -5,6 +5,7 @@ import { METADATA } from '@configs/metaData';
 import { useMDXComponent } from 'next-contentlayer/hooks';
 import NextSeoWrapper from '@components/@common/NextSeoWrapper';
 import { MDXComponents } from '@components/@common/MdxComponent/MdxComponent';
+import type { MDXComponents as MDXComponentsType } from 'mdx/types';
 
 const SnippetSlugPage = ({ snippet }: { snippet: Snippets }) => {
   const metadata = {
@@ -20,7 +21,7 @@ const SnippetSlugPage = ({ snippet }: { snippet: Snippets }) => {
   const Component = useMDXComponent(snippet.body.code);
   return (
     <NextSeoWrapper metaData={metadata}>
-      <Component components={MDXComponents as any} />
+      <Component components={MDXComponents as MDXComponentsType} />
     </NextSeoWrapper>
   );
 };

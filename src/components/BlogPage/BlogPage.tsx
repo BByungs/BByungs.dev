@@ -4,6 +4,7 @@ import { useMDXComponent } from 'next-contentlayer/hooks';
 import { MDXComponents } from '@components/@common/MdxComponent/MdxComponent';
 import NextSeoWrapper from '@components/@common/NextSeoWrapper';
 import { Blog } from 'contentlayer/generated';
+import type { MDXComponents as MDXComponentsType } from 'mdx/types';
 
 const BlogPage = ({ post }: { post: Blog }) => {
   const metadata = {
@@ -19,7 +20,7 @@ const BlogPage = ({ post }: { post: Blog }) => {
   const Component = useMDXComponent(post.body.code);
   return (
     <NextSeoWrapper metaData={metadata}>
-      <Component components={MDXComponents as any} />
+      <Component components={MDXComponents as MDXComponentsType} />
     </NextSeoWrapper>
   );
 };
