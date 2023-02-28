@@ -22,13 +22,11 @@ const MainHeader = () => {
         <Flex
           alignItems="center"
           justifyContent="space-between"
-          columnGap="20px"
           w={maxWidth}
           mx="auto"
           px="20px"
         >
           <NavBar />
-
           <Flex alignItems="center" columnGap="10px" mt="5px">
             <SearchButton />
             <ColorModeButton />

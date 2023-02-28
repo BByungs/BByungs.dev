@@ -9,7 +9,7 @@ export interface NavItemProps extends ListItemProps {
 
 const NavItem = ({ link, linkName, ...css }: NavItemProps) => {
   return (
-    <ListItem float="left" {...css}>
+    <ListItem {...css}>
       <Link href={link}>
         <Text fontWeight="bold">{linkName}</Text>
       </Link>

@@ -5,6 +5,8 @@ import ScrollIndicator from './ScrollIndicator';
 import NavItem from './NavItem';
 import MainFooter from './MainFooter';
 import SearchButton from './SearchButton';
+import NavList from './NavList';
+import MobileMenuDrawer from './MobileMenuDrawer';
 
 export {
   MainHeader,
@@ -14,4 +16,6 @@ export {
   NavItem,
   MainFooter,
   SearchButton,
+  NavList,
+  MobileMenuDrawer,
 };
