@@ -50,6 +50,7 @@ const SearchButton = () => {
         borderRadius="10px"
         display="flex"
         columnGap="8px"
+        aria-label="search-btn"
         onClick={openSearch}
       >
         <Text color="black">Search</Text>
