@@ -4,7 +4,6 @@ import { ColorModeScript } from '@chakra-ui/react';
 import theme from '@theme/theme';
 import { CONFIG } from '@config';
 import { METADATA } from '@configs/metaData';
-import { GA_TRACKING_ID } from '@utils/gtag';
 
 class Document extends NextDocument {
   redirectIEtoEdge() {
@@ -25,7 +24,7 @@ class Document extends NextDocument {
       window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', '${GA_TRACKING_ID}', {
+          gtag('config', '${CONFIG.GA_TRACKING_ID}', {
             page_path: window.location.pathname,
           });
       `,
@@ -44,7 +43,7 @@ class Document extends NextDocument {
           <script dangerouslySetInnerHTML={this.googleAnalyticsTag()} />
           <script
             async
-            src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
+            src={`https://www.googletagmanager.com/gtag/js?id=${CONFIG.GA_TRACKING_ID}`}
           />
           {/* SEO */}
           <meta name="robots" content="follow, index" />
