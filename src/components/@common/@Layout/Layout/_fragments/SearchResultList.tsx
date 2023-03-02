@@ -20,6 +20,7 @@ const SearchResultList = ({ inputValue }: { inputValue: string }) => {
     },
     [inputValue, asPath]
   );
+
   const findResults = allDocuments.filter(filterCallback);
   const typeList = Array.from(new Set(findResults.flatMap(({ type }) => type)));
   return (

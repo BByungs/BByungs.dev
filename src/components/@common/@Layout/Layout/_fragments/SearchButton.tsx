@@ -2,7 +2,6 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { Button, Flex, Icon, Text, useDisclosure } from '@chakra-ui/react';
 import { FiCommand } from 'react-icons/fi';
 import SearchModal from './SearchModal';
-import { useRouter } from 'next/router';
 
 const SearchButton = () => {
   const {
