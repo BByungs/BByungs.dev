@@ -8,6 +8,8 @@ import SearchButton from './SearchButton';
 import NavList from './NavList';
 import MobileMenuDrawer from './MobileMenuDrawer';
 import SearchModal from './SearchModal';
+import ModalColorModeButton from './ModalColorModeButton';
+import SearchResultList from './SearchResultList';
 
 export {
   MainHeader,
@@ -20,4 +22,6 @@ export {
   NavList,
   MobileMenuDrawer,
   SearchModal,
+  ModalColorModeButton,
+  SearchResultList,
 };

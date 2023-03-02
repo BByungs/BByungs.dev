@@ -1,14 +1,8 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import {
-  Button,
-  Flex,
-  Icon,
-  Skeleton,
-  Text,
-  useDisclosure,
-} from '@chakra-ui/react';
+import { Button, Flex, Icon, Text, useDisclosure } from '@chakra-ui/react';
 import { FiCommand } from 'react-icons/fi';
 import SearchModal from './SearchModal';
+import { useRouter } from 'next/router';
 
 const SearchButton = () => {
   const {
@@ -43,6 +37,14 @@ const SearchButton = () => {
     window.addEventListener('keydown', handleKeyPress);
     return () => window.removeEventListener('keydown', handleKeyPress);
   }, [handleKeyPress]);
+
+  const router = useRouter();
+  useEffect(() => {
+    router.events.on('routeChangeComplete', closeSearch);
+    return () => {
+      router.events.off('routeChangeComplete', closeSearch);
+    };
+  }, [router, closeSearch]);
 
   return (
     <React.Fragment>

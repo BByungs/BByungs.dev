@@ -1,23 +1,23 @@
-import React, { useCallback } from 'react';
+import React, { KeyboardEvent, useEffect, useState } from 'react';
 import {
   Modal,
   ModalOverlay,
   ModalContent,
   ModalHeader,
   ModalBody,
-  ModalCloseButton,
   InputGroup,
   Input,
   InputLeftElement,
   Flex,
   Text,
-  Button,
-  useColorMode,
-  useColorModeValue,
+  Divider,
 } from '@chakra-ui/react';
 
-import { allDocuments } from 'contentlayer/generated';
-import { MoonIcon, SearchIcon, SunIcon } from '@chakra-ui/icons';
+import { SearchIcon } from '@chakra-ui/icons';
+import ModalColorModeButton from './ModalColorModeButton';
+import SearchResultList from './SearchResultList';
+
+import { debounce } from 'lodash';
 
 interface SearchModalProps {
   isOpen: boolean;
@@ -25,13 +25,14 @@ interface SearchModalProps {
 }
 
 const SearchModal = ({ isOpen, onClose }: SearchModalProps) => {
-  /**
-   * @Todo make a Function to handle color mode
-   * @example
-   * const handleColorMode = () => {
-   *
-   * }
-   */
+  const [inputValue, setInputValue] = useState<string>('');
+  const inputDebounce = debounce(
+    (inputValue: string) => setInputValue(inputValue),
+    200
+  );
+  const handlePressKeyboard = (event: KeyboardEvent<HTMLInputElement>) => {
+    inputDebounce(event.currentTarget.value);
+  };
 
   return (
     <Modal isOpen={isOpen} onClose={onClose} isCentered>
@@ -54,43 +55,23 @@ const SearchModal = ({ isOpen, onClose }: SearchModalProps) => {
               variant="unstyled"
               placeholder="Search..."
               color="black"
+              onKeyUp={handlePressKeyboard}
+              _placeholder={{
+                color: 'gray.300',
+              }}
             />
           </InputGroup>
         </ModalHeader>
-        {/* Search Result List */}
-        <ModalBody p="20px">
+        <ModalBody py="20px" px="0px">
+          {/* Search Result List */}
+          <SearchResultList inputValue={inputValue} />
           {/* ColorModeButton */}
-
-          <Flex flexDir="column">
-            <Text color="gray.500" mb="10px">
-              Change Color Mode
+          <Flex flexDir="column" px="20px">
+            <Text color="gray.500" mb="10px" textStyle="sm">
+              Color Mode
             </Text>
-            <Button
-              display="flex"
-              variant="unstyled"
-              columnGap="15px"
-              alignItems="center"
-              justifyContent="flex-start"
-              h="30px"
-            >
-              <SunIcon boxSize="16px" color="black" />
-              <Text color="black" textStyle="sm">
-                Light Mode
-              </Text>
-            </Button>
-            <Button
-              display="flex"
-              variant="unstyled"
-              columnGap="15px"
-              alignItems="center"
-              justifyContent="flex-start"
-              h="30px"
-            >
-              <MoonIcon boxSize="16px" color="black" />
-              <Text color="black" textStyle="sm">
-                Dark Mode
-              </Text>
-            </Button>
+            <ModalColorModeButton mode="light" />
+            <ModalColorModeButton mode="dark" />
           </Flex>
 
           {/* Command Keys */}
