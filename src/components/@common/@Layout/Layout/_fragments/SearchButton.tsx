@@ -9,7 +9,11 @@ import {
 } from '@chakra-ui/react';
 import { FiCommand } from 'react-icons/fi';
 import SearchModal from './SearchModal';
-import { getLocalStorageItem } from '@utils/localStorage';
+
+function checkMcIntosh() {
+  if (typeof navigator === 'undefined') return null;
+  return /(Mac|iPhone|iPod|iPad)/i.test(navigator.userAgent);
+}
 
 const SearchButton = () => {
   const {
@@ -18,16 +22,12 @@ const SearchButton = () => {
     onClose: closeSearch,
   } = useDisclosure();
 
-  /**
-   * @description 마운트 후에 동작하게 하지 않으면, Expected server HTML to
-   * contain a matching <svg> in <div>에러가 났었음.
-   * 그래서 마운트가 되었는지 체크하는 boolean값을 세팅함.
-   * 참고: https://velog.io/@yijaee/serverside-html-matching
-   */
-  const [mounted, setMounted] = useState<boolean>(false);
-  useEffect(() => setMounted(true), []);
-
-  const isMcIntosh = getLocalStorageItem('@isMcIntosh');
+  const [isMcIntosh, handleMcIntosh] = useState<boolean>(true);
+  useEffect(() => {
+    if (typeof navigator === 'undefined') return;
+    const isMac: boolean = /(Mac|iPhone|iPod|iPad)/i.test(navigator.userAgent);
+    handleMcIntosh(isMac);
+  }, []);
 
   const handleKeyPress = useCallback(
     (event: KeyboardEvent) => {
@@ -68,7 +68,7 @@ const SearchButton = () => {
           Search
         </Text>
 
-        {mounted && isMcIntosh ? (
+        {isMcIntosh ? (
           <Flex
             borderRadius="5px"
             bgColor="white"

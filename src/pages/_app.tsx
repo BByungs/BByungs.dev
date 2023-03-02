@@ -1,4 +1,4 @@
-import { ThemeProvider, useColorMode, useTheme } from '@chakra-ui/react';
+import { ThemeProvider, useTheme } from '@chakra-ui/react';
 import type { AppProps } from 'next/app';
 import React, { useEffect } from 'react';
 
@@ -7,11 +7,6 @@ import { useRouter } from 'next/router';
 
 import * as gtag from '@utils/gtag';
 import { isDev } from '@constants/isDev';
-import {
-  compareLocalStorageItem,
-  getLocalStorageItem,
-  setLocalStorage,
-} from '@utils/localStorage';
 
 function App({ Component, pageProps }: AppProps) {
   const theme = useTheme();
@@ -36,14 +31,6 @@ function App({ Component, pageProps }: AppProps) {
       router.events.on('hashChangeComplete', handleRouteChange);
     };
   }, [router.events]);
-
-  useEffect(() => {
-    if (typeof navigator === 'undefined') return;
-    const isMac: boolean = /(Mac|iPhone|iPod|iPad)/i.test(navigator.userAgent);
-
-    if (!compareLocalStorageItem(isMac, '@isMcIntosh'))
-      setLocalStorage('@isMcIntosh', isMac);
-  }, []);
 
   return (
     <ThemeProvider theme={{ ...theme }}>
