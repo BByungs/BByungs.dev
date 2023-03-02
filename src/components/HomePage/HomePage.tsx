@@ -14,8 +14,8 @@ const HomePage = ({ blogs }: HomePageProps) => {
   const metadata = { ...METADATA, url: '/' };
   const tagList = ['ALL'].concat(
     Array.from(new Set(blogs.flatMap(({ tags }) => tags ?? ''))).filter(
-      (tag) => !!tag.length
-    )
+      (tag) => !!tag.length,
+    ),
   );
   const [selectTag, setSelectTag] = useState<string>('ALL');
   const handleTag = (tag: string) => setSelectTag(tag);

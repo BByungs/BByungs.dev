@@ -29,7 +29,7 @@ export const MDXComponents: MDXComponentstype = {
     props: DetailedHTMLProps<
       HTMLAttributes<HTMLHeadingElement>,
       HTMLHeadingElement
-    >
+    >,
   ) => (
     <chakra.h1
       apply="mdx.h1"
@@ -46,7 +46,7 @@ export const MDXComponents: MDXComponentstype = {
     props: DetailedHTMLProps<
       HTMLAttributes<HTMLHeadingElement>,
       HTMLHeadingElement
-    >
+    >,
   ) => (
     <LinkFragment
       apply="mdx.h2"
@@ -62,7 +62,7 @@ export const MDXComponents: MDXComponentstype = {
     props: DetailedHTMLProps<
       HTMLAttributes<HTMLHeadingElement>,
       HTMLHeadingElement
-    >
+    >,
   ) => (
     <LinkFragment
       as="h3"
@@ -78,12 +78,15 @@ export const MDXComponents: MDXComponentstype = {
     props: DetailedHTMLProps<
       HTMLAttributes<HTMLParagraphElement>,
       HTMLParagraphElement
-    >
+    >,
   ) => (
     <chakra.p apply="mdx.p" marginTop="1.25rem" lineHeight={1.7} {...props} />
   ),
   ul: (
-    props: DetailedHTMLProps<HTMLAttributes<HTMLUListElement>, HTMLUListElement>
+    props: DetailedHTMLProps<
+      HTMLAttributes<HTMLUListElement>,
+      HTMLUListElement
+    >,
   ) => (
     <UnorderedList
       apply="mdx.ul"
@@ -96,11 +99,11 @@ export const MDXComponents: MDXComponentstype = {
     props: DetailedHTMLProps<
       OlHTMLAttributes<HTMLOListElement>,
       HTMLOListElement
-    >
+    >,
   ) => <OrderedList apply="mdx.ul" listStylePos="inside" {...props} />,
   li: (props: ListItemProps) => <ListItem pb="4px" apply="mdx.li" {...props} />,
   pre: (
-    props: DetailedHTMLProps<HTMLAttributes<HTMLPreElement>, HTMLPreElement>
+    props: DetailedHTMLProps<HTMLAttributes<HTMLPreElement>, HTMLPreElement>,
   ) => {
     return <CodeBlock {...props} />;
   },
@@ -108,11 +111,11 @@ export const MDXComponents: MDXComponentstype = {
     props: DetailedHTMLProps<
       HTMLAttributes<HTMLParagraphElement>,
       HTMLParagraphElement
-    >
+    >,
   ) => <chakra.p as="strong" fontWeight="semibold" {...props} />,
   code: InlineCode,
   br: (
-    props: DetailedHTMLProps<HTMLAttributes<HTMLBRElement>, HTMLBRElement>
+    props: DetailedHTMLProps<HTMLAttributes<HTMLBRElement>, HTMLBRElement>,
   ) => <chakra.br height="24px" {...props} />,
   kbd: Kbd,
   table: Table,
@@ -122,7 +125,7 @@ export const MDXComponents: MDXComponentstype = {
     props: DetailedHTMLProps<
       AnchorHTMLAttributes<HTMLAnchorElement>,
       HTMLAnchorElement
-    >
+    >,
   ) => <chakra.a apply="mdx.a" {...props} />,
   blockquote: (props: AlertProps) => (
     <Alert

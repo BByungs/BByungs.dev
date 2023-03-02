@@ -1,60 +1,61 @@
 import * as Chakra from '@chakra-ui/react';
-import { ChakraProps, KbdProps } from '@chakra-ui/react';
 import {
   AnchorHTMLAttributes,
   DetailedHTMLProps,
   HTMLAttributes,
   OlHTMLAttributes,
 } from 'react';
-import type { MDXComponents as MDXComponentsType } from 'mdx/types';
 
 export type MDXComponentstype = {
   h1: (
     props: DetailedHTMLProps<
       HTMLAttributes<HTMLHeadingElement>,
       HTMLHeadingElement
-    >
+    >,
   ) => JSX.Element;
   h2: (
     props: DetailedHTMLProps<
       HTMLAttributes<HTMLHeadingElement>,
       HTMLHeadingElement
-    >
+    >,
   ) => JSX.Element;
   h3: (
     props: DetailedHTMLProps<
       HTMLAttributes<HTMLHeadingElement>,
       HTMLHeadingElement
-    >
+    >,
   ) => JSX.Element;
   p: (
     props: DetailedHTMLProps<
       HTMLAttributes<HTMLParagraphElement>,
       HTMLParagraphElement
-    >
+    >,
   ) => JSX.Element;
   ul: (
-    props: DetailedHTMLProps<HTMLAttributes<HTMLUListElement>, HTMLUListElement>
+    props: DetailedHTMLProps<
+      HTMLAttributes<HTMLUListElement>,
+      HTMLUListElement
+    >,
   ) => JSX.Element;
   ol: (
     props: DetailedHTMLProps<
       OlHTMLAttributes<HTMLOListElement>,
       HTMLOListElement
-    >
+    >,
   ) => JSX.Element;
   li: (props: ListItemProps) => JSX.Element;
   pre: (
-    props: DetailedHTMLProps<HTMLAttributes<HTMLPreElement>, HTMLPreElement>
+    props: DetailedHTMLProps<HTMLAttributes<HTMLPreElement>, HTMLPreElement>,
   ) => JSX.Element;
   strong: (
     props: DetailedHTMLProps<
       HTMLAttributes<HTMLParagraphElement>,
       HTMLParagraphElement
-    >
+    >,
   ) => JSX.Element;
   code: (props: Chakra.HTMLChakraProps<'code'>) => JSX.Element;
   br: (
-    props: DetailedHTMLProps<HTMLAttributes<HTMLBRElement>, HTMLBRElement>
+    props: DetailedHTMLProps<HTMLAttributes<HTMLBRElement>, HTMLBRElement>,
   ) => JSX.Element;
   kbd: Chakra.ComponentWithAs<'kbd', Chakra.KbdProps>;
   table: (props: Chakra.TableProps) => JSX.Element;
@@ -64,7 +65,7 @@ export type MDXComponentstype = {
     props: DetailedHTMLProps<
       AnchorHTMLAttributes<HTMLAnchorElement>,
       HTMLAnchorElement
-    >
+    >,
   ) => JSX.Element;
   blockquote: (props: AlertProps) => JSX.Element;
 };

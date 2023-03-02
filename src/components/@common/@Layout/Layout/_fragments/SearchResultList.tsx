@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 import { allDocuments, DocumentTypes } from 'contentlayer/generated';
-import { Button, Divider, Flex, Text } from '@chakra-ui/react';
+import { Divider, Flex, Text } from '@chakra-ui/react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
@@ -33,7 +33,7 @@ const SearchResultList = ({ inputValue }: { inputValue: string }) => {
             </Text>
 
             <Flex flexDir="column" gap="10px">
-              {typeList.map((type, idx, allArr) => (
+              {typeList.map((type) => (
                 <Flex flexDir="column" key={type} pl="20px">
                   <Text color="black" textStyle="sm_bold">
                     {type}

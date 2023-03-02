@@ -6,7 +6,7 @@ const ColorModeButton = () => {
   const { toggleColorMode } = useColorMode();
   const colorModeIcon = useColorModeValue(
     <SunIcon boxSize="24px" />,
-    <MoonIcon boxSize="24px" />
+    <MoonIcon boxSize="24px" />,
   );
   return (
     <Button

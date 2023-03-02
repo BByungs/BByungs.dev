@@ -15,8 +15,8 @@ const SnippetsPage = ({ snippetList }: { snippetList: Snippets[] }) => {
 
   const tagList = ['ALL'].concat(
     Array.from(new Set(snippetList.flatMap(({ tags }) => tags ?? ''))).filter(
-      (tag) => !!tag.length
-    )
+      (tag) => !!tag.length,
+    ),
   );
   const [selectTag, setSelectTag] = useState<string>('ALL');
   const handleTag = (tag: string) => setSelectTag(tag);

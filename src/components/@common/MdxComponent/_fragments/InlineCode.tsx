@@ -1,4 +1,4 @@
-import { chakra, HTMLChakraProps, useDimensions } from '@chakra-ui/react';
+import { chakra, HTMLChakraProps } from '@chakra-ui/react';
 import React, { useRef } from 'react';
 
 import { useSize } from '@chakra-ui/react-use-size';

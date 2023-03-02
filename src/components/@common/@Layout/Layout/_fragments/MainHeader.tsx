@@ -1,5 +1,5 @@
-import React, { lazy, Suspense } from 'react';
-import { Flex, useColorModeValue } from '@chakra-ui/react';
+import React from 'react';
+import { Flex } from '@chakra-ui/react';
 
 import { maxWidth } from '@constants/maxWidth';
 import ColorModeButton from './ColorModeButton';

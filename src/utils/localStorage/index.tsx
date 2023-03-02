@@ -1,4 +1,4 @@
-const setLocalStorage = <T extends unknown>(key: string, value: T) => {
+const setLocalStorage = <T,>(key: string, value: T) => {
   if (typeof window === 'undefined') return;
   localStorage.setItem(key, JSON.stringify(value));
 };
@@ -17,10 +17,7 @@ const removeLocalStorageItem = (key: string) => {
 /**
  * @description 비교 할 대상이 string 타입일때만 비교
  */
-const compareLocalStorageItem = <T extends unknown>(
-  currentValue: T,
-  checkKey: string
-) => {
+const compareLocalStorageItem = <T,>(currentValue: T, checkKey: string) => {
   if (typeof currentValue === 'object') return false;
   const getItem = getLocalStorageItem(checkKey);
   return getItem ? getItem === currentValue : false;

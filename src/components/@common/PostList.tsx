@@ -20,12 +20,12 @@ const PostList = <T extends DocumentTypes>({
       }
       return true;
     },
-    [selectTag]
+    [selectTag],
   );
 
   const filteredPosts = useMemo(
     () => posts.filter(callback),
-    [posts, callback]
+    [posts, callback],
   );
 
   return (

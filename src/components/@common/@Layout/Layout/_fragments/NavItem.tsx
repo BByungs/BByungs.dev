@@ -1,4 +1,4 @@
-import { ListItem, ListItemProps, Text, useColorMode } from '@chakra-ui/react';
+import { ListItem, ListItemProps, Text } from '@chakra-ui/react';
 import Link from 'next/link';
 import React from 'react';
 
