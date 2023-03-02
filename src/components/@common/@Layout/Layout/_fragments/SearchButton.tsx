@@ -63,30 +63,26 @@ const SearchButton = () => {
           Search
         </Text>
 
-        {isMcIntosh ? (
-          <Flex
-            borderRadius="5px"
-            bgColor="white"
-            columnGap="3px"
-            alignItems="center"
-            py="2px"
-            px="5px"
-            w="44px"
-            display={isMcIntosh ? 'flex' : 'none'}
-          >
-            <Icon
-              as={FiCommand}
-              color="black"
-              boxSize="12px"
-              display={isMcIntosh ? 'block' : 'none'}
-            />
-            <Text color="black" textStyle="sm_bold">
-              {`${isMcIntosh ? '+' : 'Ctrl +'} K`}
-            </Text>
-          </Flex>
-        ) : (
-          <Skeleton w="44px" borderRadius="5px" h="22px" startColor="#eaeaea" />
-        )}
+        <Flex
+          borderRadius="5px"
+          bgColor="white"
+          columnGap="3px"
+          alignItems="center"
+          py="2px"
+          px="5px"
+          w="44px"
+          display={isMcIntosh ? 'flex' : 'none'}
+        >
+          <Icon
+            as={FiCommand}
+            color="black"
+            boxSize="12px"
+            display={isMcIntosh ? 'block' : 'none'}
+          />
+          <Text color="black" textStyle="sm_bold">
+            {`${isMcIntosh ? '+' : 'Ctrl +'} K`}
+          </Text>
+        </Flex>
       </Button>
 
       <SearchModal isOpen={isSearchOpen} onClose={closeSearch} />
