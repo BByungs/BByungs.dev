@@ -1,5 +1,5 @@
 import React from 'react';
-import { Blog, Snippets } from 'contentlayer/generated';
+import { DocumentTypes } from 'contentlayer/generated';
 import { Flex, ListItem, Text } from '@chakra-ui/react';
 import Link from 'next/link';
 import usDateString from '@utils/date/usDateString';
@@ -9,9 +9,7 @@ interface PostCardProps<T> {
   postData: T;
 }
 
-const PostCard = <T extends Blog | Snippets>({
-  postData,
-}: PostCardProps<T>) => {
+const PostCard = <T extends DocumentTypes>({ postData }: PostCardProps<T>) => {
   return (
     <ListItem
       listStyleType="none"

@@ -1,7 +1,7 @@
 import React, { useCallback, useMemo } from 'react';
 import { UnorderedList } from '@chakra-ui/react';
 
-import { Blog, Snippets } from 'contentlayer/generated';
+import { DocumentTypes } from 'contentlayer/generated';
 import PostCard from './PostCard';
 
 interface PostListProps<T> {
@@ -9,7 +9,7 @@ interface PostListProps<T> {
   selectTag: string;
 }
 
-const PostList = <T extends Blog | Snippets>({
+const PostList = <T extends DocumentTypes>({
   posts,
   selectTag,
 }: PostListProps<T>) => {
