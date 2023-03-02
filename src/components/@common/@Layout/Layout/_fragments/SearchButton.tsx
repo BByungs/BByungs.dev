@@ -70,7 +70,6 @@ const SearchButton = () => {
           alignItems="center"
           py="2px"
           px="5px"
-          w="44px"
         >
           <Icon
             as={FiCommand}
