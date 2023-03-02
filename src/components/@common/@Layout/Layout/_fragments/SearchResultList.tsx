@@ -1,12 +1,11 @@
 import React, { useCallback } from 'react';
 import { allDocuments, DocumentTypes } from 'contentlayer/generated';
-import { Divider, Flex, Text } from '@chakra-ui/react';
+import { Button, Divider, Flex, Text } from '@chakra-ui/react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 const SearchResultList = ({ inputValue }: { inputValue: string }) => {
   const { asPath } = useRouter();
-
   /**
    * @Description 제목과 내용중에 입력한 값이 있다면 검색에 걸리게 세팅하였습니다.
    */
@@ -23,7 +22,6 @@ const SearchResultList = ({ inputValue }: { inputValue: string }) => {
   );
   const findResults = allDocuments.filter(filterCallback);
   const typeList = Array.from(new Set(findResults.flatMap(({ type }) => type)));
-
   return (
     <>
       {typeList.length > 0 && (
@@ -42,7 +40,9 @@ const SearchResultList = ({ inputValue }: { inputValue: string }) => {
                   mb={isLastIdx ? '0px' : '10px'}
                   pl="20px"
                 >
-                  <Text>{type}</Text>
+                  <Text color="black" textStyle="sm_bold">
+                    {type}
+                  </Text>
                   <Flex flexDir="column" pl="20px" rowGap="10px">
                     {findResults
                       .filter((item) => item.type === type)
@@ -51,7 +51,9 @@ const SearchResultList = ({ inputValue }: { inputValue: string }) => {
                           key={`${type}_${item.title}_${item.description}`}
                           href={`/${item.type.toLowerCase()}/${item.slug}`}
                         >
-                          <Text>{item.title}</Text>
+                          <Text color="black" float="left">
+                            {item.title}
+                          </Text>
                         </Link>
                       ))}
                   </Flex>
@@ -71,4 +73,4 @@ const SearchResultList = ({ inputValue }: { inputValue: string }) => {
   );
 };
 
-export default React.memo(SearchResultList);
+export default SearchResultList;

@@ -38,14 +38,6 @@ const SearchButton = () => {
     return () => window.removeEventListener('keydown', handleKeyPress);
   }, [handleKeyPress]);
 
-  const router = useRouter();
-  useEffect(() => {
-    router.events.on('routeChangeComplete', closeSearch);
-    return () => {
-      router.events.off('routeChangeComplete', closeSearch);
-    };
-  }, [router, closeSearch]);
-
   return (
     <React.Fragment>
       <Button
@@ -85,7 +77,9 @@ const SearchButton = () => {
         </Flex>
       </Button>
 
-      <SearchModal isOpen={isSearchOpen} onClose={closeSearch} />
+      {isSearchOpen && (
+        <SearchModal isOpen={isSearchOpen} onClose={closeSearch} />
+      )}
     </React.Fragment>
   );
 };
