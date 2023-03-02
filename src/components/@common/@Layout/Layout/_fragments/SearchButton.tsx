@@ -10,11 +10,6 @@ import {
 import { FiCommand } from 'react-icons/fi';
 import SearchModal from './SearchModal';
 
-function checkMcIntosh() {
-  if (typeof navigator === 'undefined') return null;
-  return /(Mac|iPhone|iPod|iPad)/i.test(navigator.userAgent);
-}
-
 const SearchButton = () => {
   const {
     isOpen: isSearchOpen,
@@ -36,7 +31,7 @@ const SearchButton = () => {
        * @Description Mac, Ios, IPad, IPod...환경이면서 동시에 command + k를 눌렀을때 동작
        * @Description 위와 다른환경이면서 동시에 Ctrl + k를 눌렀을때 동작
        */
-      if (event[hotkey] && event.key.toLowerCase() === 'k' && isMcIntosh) {
+      if (event[hotkey] && event.key.toLowerCase() === 'k') {
         event.preventDefault();
         isSearchOpen ? closeSearch() : openSearch();
       }
