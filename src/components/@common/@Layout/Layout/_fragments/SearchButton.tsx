@@ -71,7 +71,6 @@ const SearchButton = () => {
           py="2px"
           px="5px"
           w="44px"
-          display={isMcIntosh ? 'flex' : 'none'}
         >
           <Icon
             as={FiCommand}
