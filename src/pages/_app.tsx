@@ -7,6 +7,11 @@ import { useRouter } from 'next/router';
 
 import * as gtag from '@utils/gtag';
 import { isDev } from '@constants/isDev';
+import {
+  compareLocalStorageItem,
+  getLocalStorageItem,
+  setLocalStorage,
+} from '@utils/localStorage';
 
 function App({ Component, pageProps }: AppProps) {
   const theme = useTheme();
@@ -20,7 +25,6 @@ function App({ Component, pageProps }: AppProps) {
    */
   useEffect(() => {
     if (isDev) return;
-
     const handleRouteChange = (url: URL) => {
       gtag.pageview(url);
     };
@@ -32,6 +36,14 @@ function App({ Component, pageProps }: AppProps) {
       router.events.on('hashChangeComplete', handleRouteChange);
     };
   }, [router.events]);
+
+  useEffect(() => {
+    if (typeof navigator === 'undefined') return;
+    const isMac: boolean = /(Mac|iPhone|iPod|iPad)/i.test(navigator.userAgent);
+
+    if (!compareLocalStorageItem(isMac, '@isMcIntosh'))
+      setLocalStorage('@isMcIntosh', isMac);
+  }, []);
 
   return (
     <ThemeProvider theme={{ ...theme }}>
