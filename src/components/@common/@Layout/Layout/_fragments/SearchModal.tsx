@@ -44,16 +44,16 @@ const SearchModal = ({ isOpen, onClose }: SearchModalProps) => {
     };
   }, []);
 
-  /**
-   * @Description 링크 이동시 모달이 꺼지지 않는 이슈가 발생하여
-   * 라우터 변경전, 모달 꺼버림
-   */
-  useEffect(() => {
-    router.events.on('routeChangeStart', onClose);
-    return () => {
-      router.events.off('routeChangeStart', onClose);
-    };
-  }, [onClose, router.events]);
+  // /**
+  //  * @Description 링크 이동시 모달이 꺼지지 않는 이슈가 발생하여
+  //  * 라우터 변경전, 모달 꺼버림
+  //  */
+  // useEffect(() => {
+  //   router.events.on('routeChangeStart', onClose);
+  //   return () => {
+  //     router.events.off('routeChangeStart', onClose);
+  //   };
+  // }, [onClose, router.events]);
 
   return (
     <Modal isOpen={isOpen} onClose={onClose} isCentered>
