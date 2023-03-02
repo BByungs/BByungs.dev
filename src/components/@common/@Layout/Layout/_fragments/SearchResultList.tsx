@@ -1,11 +1,12 @@
 import React, { useCallback } from 'react';
-import { allDocuments, DocumentTypes } from 'contentlayer/generated';
+import { DocumentTypes, allBlogs, allSnippets } from 'contentlayer/generated';
 import { Divider, Flex, Text } from '@chakra-ui/react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 const SearchResultList = ({ inputValue }: { inputValue: string }) => {
   const { asPath } = useRouter();
+  const allPost = [...allBlogs, ...allSnippets];
   /**
    * @Description 제목과 내용중에 입력한 값이 있다면 검색에 걸리게 세팅하였습니다.
    */
@@ -21,7 +22,7 @@ const SearchResultList = ({ inputValue }: { inputValue: string }) => {
     [inputValue, asPath],
   );
 
-  const findResults = allDocuments.filter(filterCallback);
+  const findResults = allPost.filter(filterCallback);
   const typeList = Array.from(new Set(findResults.flatMap(({ type }) => type)));
   return (
     <>

@@ -2,7 +2,7 @@ const { withContentlayer } = require('next-contentlayer');
 
 module.exports = withContentlayer({
   reactStrictMode: true,
-  swcMinify: false,
+  swcMinify: true,
   images: {
     domains: ['github.com'],
   },
