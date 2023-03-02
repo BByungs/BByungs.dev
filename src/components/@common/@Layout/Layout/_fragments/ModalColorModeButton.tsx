@@ -24,7 +24,7 @@ const ModalColorModeButton = ({ mode }: { mode: 'light' | 'dark' }) => {
       }
       mode === 'dark' && colorMode === 'light' && toggleColorMode();
     },
-    [colorMode, toggleColorMode]
+    [colorMode, toggleColorMode],
   );
 
   return (

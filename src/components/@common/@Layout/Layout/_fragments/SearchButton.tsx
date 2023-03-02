@@ -29,7 +29,7 @@ const SearchButton = () => {
         isSearchOpen ? closeSearch() : openSearch();
       }
     },
-    [closeSearch, isSearchOpen, openSearch, isMcIntosh]
+    [closeSearch, isSearchOpen, openSearch, isMcIntosh],
   );
 
   useEffect(() => {

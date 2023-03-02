@@ -29,7 +29,7 @@ const SearchModal = ({ isOpen, onClose }: SearchModalProps) => {
   const [inputValue, setInputValue] = useState<string>('');
   const inputDebounce = debounce(
     (inputValue: string) => setInputValue(inputValue),
-    300
+    300,
   );
   const handlePressKeyboard = (event: KeyboardEvent<HTMLInputElement>) => {
     inputDebounce(event.currentTarget.value);

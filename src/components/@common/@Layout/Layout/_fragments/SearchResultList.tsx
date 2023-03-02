@@ -18,7 +18,7 @@ const SearchResultList = ({ inputValue }: { inputValue: string }) => {
         asPath !== `/${type.toLowerCase()}/${slug}`
       );
     },
-    [inputValue, asPath]
+    [inputValue, asPath],
   );
 
   const findResults = allDocuments.filter(filterCallback);
@@ -32,15 +32,9 @@ const SearchResultList = ({ inputValue }: { inputValue: string }) => {
               Results
             </Text>
 
-            {typeList.map((type, idx, allArr) => {
-              const isLastIdx = idx === allArr.length - 1;
-              return (
-                <Flex
-                  flexDir="column"
-                  key={type}
-                  mb={isLastIdx ? '0px' : '10px'}
-                  pl="20px"
-                >
+            <Flex flexDir="column" gap="10px">
+              {typeList.map((type, idx, allArr) => (
+                <Flex flexDir="column" key={type} pl="20px">
                   <Text color="black" textStyle="sm_bold">
                     {type}
                   </Text>
@@ -59,8 +53,8 @@ const SearchResultList = ({ inputValue }: { inputValue: string }) => {
                       ))}
                   </Flex>
                 </Flex>
-              );
-            })}
+              ))}
+            </Flex>
           </Flex>
           <Divider
             w="100%"
