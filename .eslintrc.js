@@ -39,6 +39,8 @@ module.exports = {
     '@typescript-eslint/ban-types': 'off',
     '@typescript-eslint/no-empty-interface': 'off',
     '@typescript-eslint/no-namespace': 'off',
+    '@typescript-eslint/no-explicit-any': 'off',
+    'no-useless-escape': 'off',
   },
   settings: {
     react: {
