@@ -10,6 +10,10 @@ import MobileMenuDrawer from './MobileMenuDrawer';
 import SearchModal from './SearchModal';
 import ModalColorModeButton from './ModalColorModeButton';
 import SearchResultList from './SearchResultList';
+import ModalItemWrapper from './ModalItemWrapper';
+import ContactList from './ContactList';
+import ModalColorBtnList from './ModalColorBtnList';
+import ContactItem from './ContactItem';
 
 export {
   MainHeader,
@@ -24,4 +28,8 @@ export {
   SearchModal,
   ModalColorModeButton,
   SearchResultList,
+  ModalItemWrapper,
+  ContactList,
+  ModalColorBtnList,
+  ContactItem,
 };
