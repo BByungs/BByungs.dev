@@ -1,4 +1,4 @@
-import { Divider, Flex, Link, Text } from '@chakra-ui/react';
+import { Divider, Flex } from '@chakra-ui/react';
 import GithubIcon from '@components/@common/@Icons/GithubIcon';
 import GmailIcon from '@components/@common/@Icons/GmailIcon';
 import { METADATA } from '@configs/metaData';
