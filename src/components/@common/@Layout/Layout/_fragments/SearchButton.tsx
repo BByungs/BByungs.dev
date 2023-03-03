@@ -47,7 +47,7 @@ const SearchButton = () => {
         bgColor="#eaeaea"
         borderRadius="10px"
         display="flex"
-        columnGap="8px"
+        columnGap="6px"
         aria-label="search-btn"
         onClick={openSearch}
         w="110px"
@@ -70,7 +70,8 @@ const SearchButton = () => {
             boxSize="12px"
             display={isMcIntosh ? 'block' : 'none'}
           />
-          <Text color="black" textStyle="sm_bold">
+
+          <Text color="black" textStyle="sm">
             {`${isMcIntosh ? '+' : 'Ctrl +'} K`}
           </Text>
         </Flex>
