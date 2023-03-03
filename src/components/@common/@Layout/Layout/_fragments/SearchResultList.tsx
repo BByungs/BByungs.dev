@@ -1,20 +1,34 @@
 import React, { useCallback } from 'react';
-import { allDocuments, DocumentTypes } from 'contentlayer/generated';
-import { Divider, Flex, Text } from '@chakra-ui/react';
+
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+
+import {
+  Divider,
+  Flex,
+  ListIcon,
+  ListItem,
+  Text,
+  UnorderedList,
+} from '@chakra-ui/react';
+
+import { allDocuments, DocumentTypes } from 'contentlayer/generated';
+import { ArrowForwardIcon } from '@chakra-ui/icons';
+import ModalItemWrapper from './ModalItemWrapper';
 
 const SearchResultList = ({ inputValue }: { inputValue: string }) => {
   const { asPath } = useRouter();
   /**
-   * @Description 제목과 내용중에 입력한 값이 있다면 검색에 걸리게 세팅하였습니다.
+   * @Description 해당페이지를 제외하고, 제목과 아티클 내용 둘 중 하나라도 같은 키워드가 있으면
+   * 검색되게 구현함(비교는 모든 문자열과 비교 키워드를 소문자로 변환 후 했음, 그리고 3글자 이상 검색해야 결과 나오게 구현함)
    */
   const filterCallback = useCallback(
     ({ title, body: { raw }, type, slug }: DocumentTypes) => {
-      if (!inputValue) return false;
+      if (inputValue.length < 3) return false;
 
       return (
-        (title.includes(inputValue) || raw.includes(inputValue)) &&
+        (title.toLowerCase().includes(inputValue.toLowerCase()) ||
+          raw.toLowerCase().includes(inputValue.toLowerCase())) &&
         asPath !== `/${type.toLowerCase()}/${slug}`
       );
     },
@@ -24,38 +38,53 @@ const SearchResultList = ({ inputValue }: { inputValue: string }) => {
   const findResults = allDocuments.filter(filterCallback);
   const typeList = Array.from(new Set(findResults.flatMap(({ type }) => type)));
   return (
-    <>
+    <React.Fragment>
       {typeList.length > 0 && (
         <Flex flexDir="column">
-          <Flex flexDir="column" px="20px">
-            <Text color="gray.500" mb="10px" textStyle="sm">
-              Results
-            </Text>
-
-            <Flex flexDir="column" gap="10px">
+          <ModalItemWrapper title="Results">
+            <UnorderedList
+              spacing="10px"
+              listStylePos="outside"
+              listStyleType="none"
+            >
               {typeList.map((type) => (
-                <Flex flexDir="column" key={type} pl="20px">
-                  <Text color="black" textStyle="sm_bold">
+                <ListItem flexDir="column" key={type}>
+                  <Text color="gray.500" textStyle="sm" mb="5px">
                     {type}
                   </Text>
-                  <Flex flexDir="column" pl="20px" rowGap="10px">
+                  <UnorderedList spacing="10px" listStyleType="none" ml="14px">
                     {findResults
                       .filter((item) => item.type === type)
                       .map((item) => (
-                        <Link
+                        <ListItem
                           key={`${type}_${item.title}_${item.description}`}
-                          href={`/${item.type.toLowerCase()}/${item.slug}`}
+                          alignItems="center"
                         >
-                          <Text color="black" float="left">
-                            {item.title}
-                          </Text>
-                        </Link>
+                          <Link
+                            href={`/${item.type.toLowerCase()}/${item.slug}`}
+                          >
+                            <Flex alignItems="center">
+                              <ListIcon
+                                as={ArrowForwardIcon}
+                                color="gray.500"
+                                boxSize="12px"
+                              />
+                              <Text
+                                color="black"
+                                textStyle="sm"
+                                fontWeight="500"
+                              >
+                                {item.title}
+                              </Text>
+                            </Flex>
+                          </Link>
+                        </ListItem>
                       ))}
-                  </Flex>
-                </Flex>
+                  </UnorderedList>
+                </ListItem>
               ))}
-            </Flex>
-          </Flex>
+            </UnorderedList>
+          </ModalItemWrapper>
           <Divider
             w="100%"
             borderBottomWidth="2px"
@@ -64,7 +93,7 @@ const SearchResultList = ({ inputValue }: { inputValue: string }) => {
           />
         </Flex>
       )}
-    </>
+    </React.Fragment>
   );
 };
 
