@@ -2,7 +2,7 @@ import React, { useCallback, useMemo } from 'react';
 import { Text, Button, useColorMode } from '@chakra-ui/react';
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 
-const ModalColorModeButton = ({ mode }: { mode: 'light' | 'dark' }) => {
+const ModalColorModeButton = ({ mode }: { mode: ColorModeType }) => {
   const { colorMode, toggleColorMode } = useColorMode();
   const conditionColor = useMemo(() => {
     return colorMode === mode ? 'black' : 'gray.300';
