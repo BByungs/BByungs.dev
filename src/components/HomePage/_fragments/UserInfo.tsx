@@ -1,15 +1,23 @@
 import React from 'react';
-import { Avatar, Button, Flex, FlexProps, Link, Text } from '@chakra-ui/react';
+import { Box, Button, Flex, FlexProps, Link, Text } from '@chakra-ui/react';
 
 import GithubIcon from '@components/@common/@Icons/GithubIcon';
 import MailIcon from '@components/@common/@Icons/MailIcon';
 import { METADATA } from '@configs/metaData';
+import Image from 'next/image';
 
 const UserInfo = ({ ...css }: FlexProps) => {
   return (
     <Flex {...css} gap="20px">
       {/* Avatar */}
-      <Avatar boxSize="90px" src={METADATA.thumbnailUrl} name="user-photo" />
+      <Box borderRadius="100%" overflow="hidden" boxSize="90px" pos="relative">
+        <Image
+          src={METADATA.thumbnailUrl}
+          alt="user-photo"
+          fill
+          objectFit="cover"
+        />
+      </Box>
       {/* Description */}
       <Flex flexDir="column" justifyContent="space-between">
         <Flex flexDir="column">
