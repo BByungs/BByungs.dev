@@ -8,16 +8,13 @@ import {
   InputGroup,
   Input,
   InputLeftElement,
-  Flex,
-  Text,
 } from '@chakra-ui/react';
 
 import { SearchIcon } from '@chakra-ui/icons';
-import ModalColorModeButton from './ModalColorModeButton';
-import SearchResultList from './SearchResultList';
 
 import { debounce } from 'lodash';
 import { useRouter } from 'next/router';
+import { ContactList, ModalColorBtnList, SearchResultList } from '.';
 
 interface SearchModalProps {
   isOpen: boolean;
@@ -38,11 +35,7 @@ const SearchModal = ({ isOpen, onClose }: SearchModalProps) => {
   /**
    * @Description 모달이 꺼지면 상태 초기화
    */
-  useEffect(() => {
-    return () => {
-      setInputValue('');
-    };
-  }, []);
+  useEffect(() => () => setInputValue(''), []);
 
   /**
    * @Description 링크 이동시 모달이 꺼지지 않는 이슈가 발생하여
@@ -50,9 +43,7 @@ const SearchModal = ({ isOpen, onClose }: SearchModalProps) => {
    */
   useEffect(() => {
     router.events.on('routeChangeStart', onClose);
-    return () => {
-      router.events.off('routeChangeStart', onClose);
-    };
+    return () => router.events.off('routeChangeStart', onClose);
   }, [onClose, router.events]);
 
   return (
@@ -86,16 +77,10 @@ const SearchModal = ({ isOpen, onClose }: SearchModalProps) => {
         <ModalBody py="20px" px="0px">
           {/* Search Result List */}
           <SearchResultList inputValue={inputValue} />
+          {/* Contact */}
+          <ContactList />
           {/* ColorModeButton */}
-          <Flex flexDir="column" px="20px">
-            <Text color="gray.500" mb="10px" textStyle="sm">
-              Color Mode
-            </Text>
-            <ModalColorModeButton mode="light" />
-            <ModalColorModeButton mode="dark" />
-          </Flex>
-
-          {/* Command Keys */}
+          <ModalColorBtnList />
         </ModalBody>
       </ModalContent>
     </Modal>
