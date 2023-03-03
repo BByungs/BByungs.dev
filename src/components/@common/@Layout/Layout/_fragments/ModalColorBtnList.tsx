@@ -6,7 +6,7 @@ const ModalColorBtnList = () => {
   return (
     <ModalItemWrapper title="Color Mode">
       {colorModeList.map((colorMode) => (
-        <ModalColorModeButton mode={colorMode} />
+        <ModalColorModeButton mode={colorMode} key={`${colorMode}-colorMode`} />
       ))}
     </ModalItemWrapper>
   );
