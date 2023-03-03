@@ -5,8 +5,7 @@ export const METADATA: MetaDataType = {
   description: `Dev Ahn's Blog`,
   email: 'byungjin0120@gmail.com',
   github: 'BByungs',
-  thumbnailUrl:
-    'https://user-images.githubusercontent.com/81910935/220374865-f170d3b5-89e1-453b-a6b2-32835bafeb8c.jpeg',
+  thumbnailUrl: '/images/my-photo.jpeg',
   date: '',
   tags: [],
 };
