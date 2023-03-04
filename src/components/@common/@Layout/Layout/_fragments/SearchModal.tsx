@@ -12,9 +12,9 @@ import {
 
 import { SearchIcon } from '@chakra-ui/icons';
 
-import { debounce } from 'lodash';
 import { useRouter } from 'next/router';
 import { ContactList, ModalColorBtnList, SearchResultList } from '.';
+import { debounce } from '@utils/debounce';
 
 interface SearchModalProps {
   isOpen: boolean;
@@ -24,6 +24,7 @@ interface SearchModalProps {
 const SearchModal = ({ isOpen, onClose }: SearchModalProps) => {
   const router = useRouter();
   const [inputValue, setInputValue] = useState<string>('');
+
   const inputDebounce = debounce(
     (inputValue: string) => setInputValue(inputValue),
     300,
