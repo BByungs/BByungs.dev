@@ -14,7 +14,7 @@ import { SearchIcon } from '@chakra-ui/icons';
 
 import { useRouter } from 'next/router';
 import { ContactList, ModalColorBtnList, SearchResultList } from '.';
-import { debounce } from '@utils/debounce';
+import { debounce } from '@utils/core';
 
 interface SearchModalProps {
   isOpen: boolean;
