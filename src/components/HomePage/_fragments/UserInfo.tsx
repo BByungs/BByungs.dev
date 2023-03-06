@@ -1,14 +1,22 @@
 import React from 'react';
 import { Flex, FlexProps, Text } from '@chakra-ui/react';
 import { METADATA } from '@configs/metaData';
-import UserImage from './UserImage';
 import ContactLinkList from './ContactLinkList';
+import WrappedNextImage from '@components/@common/WrappedNextImage';
 
 const UserInfo = ({ ...css }: FlexProps) => {
   return (
     <Flex {...css} gap="20px">
-      {/* Avatar */}
-      <UserImage src={METADATA.thumbnailUrl} />
+      {/* User Image */}
+      <WrappedNextImage
+        src={METADATA.thumbnailUrl}
+        alt="user-photo"
+        overflow="hidden"
+        borderRadius="100%"
+        width="90px"
+        height="90px"
+        nextImageProps={{ priority: true }}
+      />
       {/* Description */}
       <Flex flexDir="column" justifyContent="space-between">
         <Flex flexDir="column">
