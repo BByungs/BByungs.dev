@@ -1,21 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Box } from '@chakra-ui/react';
+import { throttle } from '@utils/core';
 
 const ScrollIndicator = () => {
   const [scrollRatio, setScrollRatio] = useState<number>(0);
 
   useEffect(() => {
-    let timeoutId: null | ReturnType<typeof setTimeout> = null;
-    const throttleTime = 15;
-
-    const throttle = (callback: () => void, time: number) => {
-      if (timeoutId) return;
-      timeoutId = setTimeout(() => {
-        callback();
-        timeoutId = null;
-      }, time);
-    };
-
     const scrollProgress = () => {
       const scrollPx = document.documentElement.scrollTop;
       const winHeightPx =
@@ -25,12 +15,10 @@ const ScrollIndicator = () => {
       setScrollRatio(scrolled);
     };
 
-    const scrollCallback = () => {
-      throttle(scrollProgress, throttleTime);
-    };
+    const scrollThrottle = throttle(scrollProgress, 10);
 
-    window.addEventListener('scroll', scrollCallback);
-    return () => window.removeEventListener('scroll', scrollCallback);
+    window.addEventListener('scroll', scrollThrottle);
+    return () => window.removeEventListener('scroll', scrollThrottle);
   }, [scrollRatio]);
 
   return (
