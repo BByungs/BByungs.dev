@@ -3,7 +3,7 @@ import PostList from './PostList';
 import TagList from './TagList';
 import { DocumentTypes } from 'contentlayer/generated';
 import { Box, Text } from '@chakra-ui/react';
-import { maxWidth } from '@constants/maxWidth';
+import { ommitedPaddingMaxWidth } from '@constants/maxWidth';
 
 interface PostOrganismProps<T> {
   posts: T[];
@@ -36,7 +36,7 @@ const PostOrganism = <T extends DocumentTypes>({
       <PostList posts={posts} selectTag={selectTag} />
     </React.Fragment>
   ) : (
-    <Box pos="absolute" top="50%" w={maxWidth}>
+    <Box pos="absolute" top="50%" w={ommitedPaddingMaxWidth}>
       <Text textAlign="center" textStyle="md_bold">
         No Posts!!
       </Text>
