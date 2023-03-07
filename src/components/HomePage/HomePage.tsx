@@ -14,7 +14,6 @@ const HomePage = ({ blogs }: HomePageProps) => {
 
   return (
     <NextSeoWrapper metaData={metadata}>
-      {/* User Info */}
       <UserInfo mb="40px" />
       <PostOrganism posts={blogs} />
     </NextSeoWrapper>
