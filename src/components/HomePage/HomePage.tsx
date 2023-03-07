@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import NextSeoWrapper from '@components/@common/NextSeoWrapper';
 import { METADATA } from '@configs/metaData';
 import { UserInfo } from './_fragments';
 import { Blog } from 'contentlayer/generated';
-import TagList from '@components/@common/TagList';
-import PostList from '@components/@common/PostList';
+import PostOrganism from '@components/@common/PostOrganism';
 
 export interface HomePageProps {
   blogs: Blog[];
@@ -12,27 +11,12 @@ export interface HomePageProps {
 
 const HomePage = ({ blogs }: HomePageProps) => {
   const metadata = { ...METADATA, url: '/' };
-  const tagList = ['ALL'].concat(
-    Array.from(new Set(blogs.flatMap(({ tags }) => tags ?? ''))).filter(
-      (tag) => !!tag.length,
-    ),
-  );
-  const [selectTag, setSelectTag] = useState<string>('ALL');
-  const handleTag = (tag: string) => setSelectTag(tag);
 
   return (
     <NextSeoWrapper metaData={metadata}>
       {/* User Info */}
       <UserInfo mb="40px" />
-      {/* Tag List */}
-      <TagList
-        tagList={tagList}
-        handleTag={handleTag}
-        selectTag={selectTag}
-        mb="40px"
-      />
-      {/* Blog List */}
-      <PostList posts={blogs} selectTag={selectTag} />
+      <PostOrganism posts={blogs} />
     </NextSeoWrapper>
   );
 };
