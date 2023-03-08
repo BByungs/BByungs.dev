@@ -1,16 +1,15 @@
 # 게시글을 올리는 방법
 
 ```markdown
-    ---
-    title: 게시글 제목
-    date: 날짜
-    description: 게시글 설명
-    thumbnailUrl: 대표 썸네일 이미지 경로
-    tags:
-        - tag name
-        - tag name
-        ...
-    ---
+---
+title: 게시글 제목
+date: 날짜
+description: 게시글 설명
+thumbnailUrl: 대표 썸네일 이미지 경로
+tags:
+    - tag name
+    - tag name
+---
 ```
 
 위에 있는 형식으로 title부터 tags까지 등록해준다. (tags는 있어도되고, 없어도 된다.) <br />
