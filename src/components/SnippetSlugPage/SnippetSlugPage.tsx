@@ -7,18 +7,18 @@ import NextSeoWrapper from '@components/@common/NextSeoWrapper';
 import { MDXComponents } from '@components/@common/MdxComponent/MdxComponent';
 import type { MDXComponents as MDXComponentsType } from 'mdx/types';
 
-const SnippetSlugPage = ({ snippet }: { snippet: Snippets }) => {
+const SnippetSlugPage = ({ post }: { post: Snippets }) => {
   const metadata = {
     ...METADATA,
-    title: snippet.title,
-    description: snippet.description,
-    date: snippet.date,
-    url: snippet.slug,
-    thumbnailUrl: snippet.thumbnailUrl,
-    tags: snippet.tags ?? [],
+    title: post.title,
+    description: post.description,
+    date: post.date,
+    url: post.slug,
+    thumbnailUrl: post.thumbnailUrl,
+    tags: post.tags ?? [],
   };
 
-  const Component = useMDXComponent(snippet.body.code);
+  const Component = useMDXComponent(post.body.code);
   return (
     <NextSeoWrapper metaData={metadata}>
       <Component components={MDXComponents as MDXComponentsType} />
