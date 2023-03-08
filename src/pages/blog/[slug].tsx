@@ -1,6 +1,7 @@
 import Layout from '@components/@common/@Layout/Layout';
 import BlogPage from '@components/BlogPage';
 import { allBlogs, Blog } from 'contentlayer/generated';
+import { returnGSPaths, returnGSProps } from '@utils/nextStatic';
 import {
   GetStaticPathsResult,
   GetStaticPropsContext,
@@ -9,30 +10,13 @@ import {
   NextPage,
 } from 'next';
 
-export const getStaticPaths = async (): Promise<GetStaticPathsResult> => {
-  return {
-    paths: allBlogs.map((p) => ({ params: { slug: p.slug } })),
-    fallback: false,
-  };
-};
+export const getStaticPaths = async (): Promise<GetStaticPathsResult> =>
+  returnGSPaths(allBlogs);
 
 export const getStaticProps = async ({
   params,
-}: GetStaticPropsContext): Promise<GetStaticPropsResult<{ post: Blog }>> => {
-  const post = allBlogs.find((p) => p.slug === params?.slug);
-  return typeof post === 'undefined'
-    ? {
-        redirect: {
-          destination: '/',
-          permanent: false,
-        },
-      }
-    : {
-        props: {
-          post,
-        },
-      };
-};
+}: GetStaticPropsContext): Promise<GetStaticPropsResult<{ post: Blog }>> =>
+  returnGSProps(allBlogs, params?.slug);
 
 const BlogSlug: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
   post,

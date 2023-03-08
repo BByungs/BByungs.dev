@@ -1,5 +1,7 @@
 import Layout from '@components/@common/@Layout/Layout';
 import SnippetSlugPage from '@components/SnippetSlugPage';
+import { allSnippets, Snippets } from 'contentlayer/generated';
+import { returnGSPaths, returnGSProps } from '@utils/nextStatic';
 import {
   GetStaticPathsResult,
   GetStaticPropsContext,
@@ -7,44 +9,23 @@ import {
   InferGetStaticPropsType,
   NextPage,
 } from 'next';
-import { allSnippets, Snippets } from 'contentlayer/generated';
 
-export const getStaticPaths = async (): Promise<GetStaticPathsResult> => {
-  return {
-    paths: allSnippets.map((p) => ({ params: { slug: p.slug } })),
-    fallback: false,
-  };
-};
+export const getStaticPaths = async (): Promise<GetStaticPathsResult> =>
+  returnGSPaths(allSnippets);
 
 export const getStaticProps = async ({
   params,
-}: GetStaticPropsContext): Promise<
-  GetStaticPropsResult<{ snippet: Snippets }>
-> => {
-  const snippet = allSnippets.find((p) => p.slug === params?.slug);
-
-  return typeof snippet === 'undefined'
-    ? {
-        redirect: {
-          destination: '/',
-          permanent: false,
-        },
-      }
-    : {
-        props: {
-          snippet,
-        },
-      };
-};
+}: GetStaticPropsContext): Promise<GetStaticPropsResult<{ post: Snippets }>> =>
+  returnGSProps(allSnippets, params?.slug);
 
 const SnippetSlug: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
-  snippet,
+  post,
 }) => (
   <Layout
     p="0px 20px"
     mt="20px"
     isScrollIndicator
-    content={<SnippetSlugPage snippet={snippet} />}
+    content={<SnippetSlugPage post={post} />}
   />
 );
 
