@@ -9,7 +9,11 @@ interface NextSeoWrapperProps {
 
 const NextSeoWrapper = ({ metaData, children }: NextSeoWrapperProps) => {
   const isHome = useMemo(() => {
-    return metaData.url === '/' || metaData.url === '/snippets';
+    return (
+      metaData.url === '/' ||
+      metaData.url === '/snippets' ||
+      metaData.url === '/about'
+    );
   }, [metaData.url]);
 
   return (
