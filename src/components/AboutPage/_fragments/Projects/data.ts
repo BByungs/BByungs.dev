@@ -14,7 +14,7 @@ export const PROJECTLIST: ProjectType[] = [
       'Next-Contentlayer',
     ],
     detailDesc: [
-      'next-contentlayer를 사용해 ',
+      'next-contentlayer를 사용하여 mdx파일을 코드로 변환하여 마크다운 형식으로 변환하는 코드 구현',
       'Chakra-Ui를 사용해 디자인 시스템 구축, 다크모드 적용',
       'Vercel을 이용한 간편한 배포 환경 구축',
       '블로그가 검색엔진에 잘 노출 될 수 있도록 SEO 최적화',
