@@ -25,3 +25,11 @@ export const returnGSProps = <T extends DocumentTypes>(
         },
       };
 };
+
+export const returnCategoryHomeGSProps = <T extends DocumentTypes>(
+  posts: T[],
+) => ({
+  props: {
+    posts,
+  },
+});
