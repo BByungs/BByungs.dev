@@ -1,11 +1,14 @@
-import React from 'react';
-import { Snippets } from 'contentlayer/generated';
-import { METADATA } from '@configs/metaData';
 import NextSeoWrapper from '@components/@common/NextSeoWrapper';
+import { METADATA } from '@configs/metaData';
+import { Snippets } from 'contentlayer/generated';
 import { Text, VStack } from '@chakra-ui/react';
 import PostOrganism from '@components/@common/PostOrganism';
 
-const SnippetsPage = ({ snippetList }: { snippetList: Snippets[] }) => {
+interface SnippetsPageProps {
+  posts: Snippets[];
+}
+
+const SnippetsPage = ({ posts }: SnippetsPageProps) => {
   const metadata = {
     ...METADATA,
     url: '/snippets',
@@ -21,7 +24,7 @@ const SnippetsPage = ({ snippetList }: { snippetList: Snippets[] }) => {
         <Text>개발하면서 유용하게 쓰일 코드 조각들 입니다.</Text>
       </VStack>
 
-      <PostOrganism posts={snippetList} />
+      <PostOrganism posts={posts} />
     </NextSeoWrapper>
   );
 };
