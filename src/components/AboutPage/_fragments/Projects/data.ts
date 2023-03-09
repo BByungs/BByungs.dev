@@ -1,15 +1,17 @@
+import { METADATA } from '@configs/metaData';
+
 export const PROJECTLIST: ProjectType[] = [
   {
     projectName: 'Tech Blog',
     description: '개발하며 배운 것과 생각들을 기록하는 블로그',
-    projectLink: 'https://github.com/BByungs/BByungs.dev',
+    projectLink: METADATA.url,
     techStackList: [
       'Next.js',
       'TypeScript',
       'React',
       'Chakra-Ui',
       'Vercel',
-      'next-contentlayer',
+      'Next-Contentlayer',
     ],
     detailDesc: [
       'next-contentlayer를 사용해 ',
