@@ -1,20 +1,19 @@
 import React from 'react';
 
 import { Flex, Text } from '@chakra-ui/react';
-import { SideProjectType } from '../data';
 
 import DetailDesc from './DetailDesc';
 import ProjectName from './ProjectName';
 
-const SideProjectItem = ({ item }: { item: SideProjectType }) => {
-  const { projectName, projectLink, description, useTechStack, detailDesc } =
+const ProjectItem = ({ item }: { item: ProjectType }) => {
+  const { projectName, projectLink, description, techStackList, detailDesc } =
     item;
   return (
     <Flex flexDir="column">
       <ProjectName
         projectLink={projectLink}
         projectName={projectName}
-        useTechStack={useTechStack}
+        techStackList={techStackList}
       />
       <Text textStyle="smlg_bold" mb="5px">
         {description}
@@ -24,4 +23,4 @@ const SideProjectItem = ({ item }: { item: SideProjectType }) => {
   );
 };
 
-export default React.memo(SideProjectItem);
+export default React.memo(ProjectItem);

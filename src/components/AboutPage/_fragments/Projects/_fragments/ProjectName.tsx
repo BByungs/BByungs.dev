@@ -1,12 +1,11 @@
 import React from 'react';
 import { Flex, Link, Text } from '@chakra-ui/react';
-import { SideProjectType } from '../data';
 
 const ProjectName = ({
   projectLink,
   projectName,
-  useTechStack,
-}: Omit<SideProjectType, 'detailDesc' | 'description'>) => {
+  techStackList,
+}: Omit<ProjectType, 'detailDesc' | 'description'>) => {
   return (
     <Flex flexDir="column" rowGap="5px" mb="15px">
       <Link href={projectLink} isExternal>
@@ -20,7 +19,7 @@ const ProjectName = ({
         </Flex>
       </Link>
 
-      <Text textStyle="sm">{useTechStack.join(' | ')}</Text>
+      <Text textStyle="sm">{techStackList.join(' | ')}</Text>
     </Flex>
   );
 };

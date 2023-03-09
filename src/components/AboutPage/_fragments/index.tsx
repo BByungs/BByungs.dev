@@ -1,4 +1,4 @@
 import Introduction from './Introduction';
-import SideProjects from './SideProjects';
+import Projects from './Projects';
 
-export { Introduction, SideProjects };
+export { Introduction, Projects };

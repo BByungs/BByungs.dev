@@ -1,16 +1,20 @@
 import { ListItem, UnorderedList } from '@chakra-ui/react';
 import React from 'react';
-import { SideProjectType } from '../data';
 
 const DetailDesc = ({
   detailDesc,
   projectName,
-}: Pick<SideProjectType, 'detailDesc' | 'projectName'>) => {
+}: Pick<ProjectType, 'detailDesc' | 'projectName'>) => {
   return (
-    <UnorderedList listStyleType="none" ml="10px" spacing="5px">
+    <UnorderedList
+      listStyleType="none"
+      ml="10px"
+      spacing="5px"
+      listStylePos="inside"
+    >
       {detailDesc.map((desc) => (
         <ListItem
-          textStyle="smlg"
+          textStyle="sm"
           key={`${projectName}_${desc}`}
           _before={{ content: '"- "' }}
         >

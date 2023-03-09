@@ -4,7 +4,7 @@ import NextSeoWrapper from '@components/@common/NextSeoWrapper';
 
 import { Flex } from '@chakra-ui/react';
 
-import { Introduction, SideProjects } from './_fragments';
+import { Introduction, Projects } from './_fragments';
 
 const AboutPage = () => {
   const metadata = {
@@ -25,7 +25,7 @@ const AboutPage = () => {
         rowGap="20px"
       >
         <Introduction />
-        <SideProjects />
+        <Projects />
       </Flex>
     </NextSeoWrapper>
   );
