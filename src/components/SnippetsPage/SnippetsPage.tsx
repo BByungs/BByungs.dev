@@ -12,7 +12,7 @@ const SnippetsPage = ({ posts }: SnippetsPageProps) => {
   const metadata = {
     ...METADATA,
     url: '/snippets',
-    title: 'snippets | BByungs.dev',
+    title: 'Snippets - BByungs.dev',
   };
 
   return (

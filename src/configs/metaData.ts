@@ -1,6 +1,6 @@
 export const METADATA: MetaDataType = {
   url: 'https://devahn.vercel.app/',
-  title: `Home | BByungs.dev`,
+  title: `Home - BByungs.dev`,
   author: 'ByungJin Ahn',
   description: `Dev Ahn's Blog`,
   email: 'byungjin0120@gmail.com',

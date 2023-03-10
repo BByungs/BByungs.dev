@@ -10,7 +10,7 @@ const AboutPage = () => {
   const metadata = {
     ...METADATA,
     url: '/about',
-    title: 'About | BByungs.dev',
+    title: 'About - BByungs.dev',
     description: '개발자 안병진 About페이지',
   };
 
