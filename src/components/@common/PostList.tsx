@@ -29,7 +29,7 @@ const PostList = <T extends DocumentTypes>({
   );
 
   return (
-    <UnorderedList m="0">
+    <UnorderedList m="0" spacing="20px">
       {filteredPosts.map((post) => (
         <PostCard
           key={`${post._id}_${post.title}_${post.date}`}

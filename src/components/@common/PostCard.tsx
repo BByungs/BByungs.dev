@@ -11,14 +11,7 @@ interface PostCardProps<T> {
 
 const PostCard = <T extends DocumentTypes>({ postData }: PostCardProps<T>) => {
   return (
-    <ListItem
-      listStyleType="none"
-      css={{
-        ':not(:last-child)': {
-          marginBottom: '20px',
-        },
-      }}
-    >
+    <ListItem listStyleType="none">
       <Link href={`/${postData.type.toLowerCase()}/${postData.slug}`}>
         <Flex
           alignItems="center"
