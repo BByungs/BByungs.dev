@@ -20,6 +20,7 @@ import {
   Table,
   TData,
   THead,
+  Anchor,
 } from './_fragments';
 const { chakra, Kbd, Alert } = Chakra;
 
@@ -121,12 +122,7 @@ export const MDXComponents: MDXComponentstype = {
   table: Table,
   th: THead,
   td: TData,
-  a: (
-    props: DetailedHTMLProps<
-      AnchorHTMLAttributes<HTMLAnchorElement>,
-      HTMLAnchorElement
-    >,
-  ) => <chakra.a apply="mdx.a" {...props} />,
+  a: Anchor,
   blockquote: (props: AlertProps) => (
     <Alert
       mt="4"
