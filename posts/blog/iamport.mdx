@@ -1,0 +1,63 @@
+---
+title: 아임포트 결제 연동하기
+date: 2023-03-13
+description: 모바일에서 아임포트 결제 연동하는 방법
+thumbnailUrl: '/thumbnail/blog/import.png'
+tags:
+    - Iamport
+---
+
+
+## 내가 사용했던 mobile 결제 처리 방법
+/detail/[id]/로 리디렉션 url을 설정 했다고 가정해보자
+```typescript
+...com/detail/[id]/complete?imp_uid=결제건을_특정하는_아임포트_번호&merchant_uid=가맹점_고유_주문번호&imp_success=true
+```
+해당 디테일 페이지로 이동하면 위의 url을 볼 수 있다.
+
+쿼리스트링으로 imp_uid , merchant_uid , imp_success 에 대한 데이터를 추출해서 데이터를 가지고 핸들링 할 수 있다.<br /><br />
+
+<b>[id].tsx에서 받은 query string값으로 핸들링 한 예시</b>
+```tsx
+const Detail = () => {
+    const { query } = useRouter();
+    useEffect(() => {
+        const { imp_uid , merchant_uid , imp_success } = query;
+        if(imp_uid && merchant_uid && imp_success) {
+            // 결제 후 리디렉션 url로 이동이 되었을 경우
+            // ... 쿼리스트링으로 받은 데이터를 가지고 핸들링
+        };
+    }, [query]);
+    
+    return (
+        /* ...중략... */
+    );
+};
+```
+
+## 결제 후 화면 이동
+PC와 달리 모바일에선, redirection url을 설정해줘야 한다.
+```tsx
+const callback = ({success}) => {
+    /* ...중략... */
+    if(success) {
+        // 성공 페이지로 이동
+    } else {
+        // 실패 페이지로 이동
+    }
+};
+
+IMP.request_pay({
+    // ...
+    /* Mobile환경에선 리디렉션 url을 세팅해줘야 함 */
+    m_redirect_url
+}, callback)
+```
+
+PC에선 callback이 실행 되지만, MOBILE환경에선 실행되지 않는다. <br/>
+앞서 설명했지만, MOBILE에서는 리디렉션url을 세팅을 하고, 그 url에서 받은 쿼리스트링값으로 핸들링 해야한다. <br/><br/>
+
+그래서 PC에선 결제 후 화면이동이 매끄럽지만, MOBILE에선 리디렉션url을 한번 거치고, 결제 후 화면으로 이동해야하는 이슈가 있다. 이건 어떻게 해결해야할지 고민을 해봐야 할 것 같다.
+
+**#참고** [모바일, 웹 결제시 주의사항](https://portone.gitbook.io/docs/pg/payment-gateway/undefined-1/undefined#pc-success-imp_success) <br />
+**#참고** [아임포트 결제 연동 Docs](https://portone.gitbook.io/docs/)
