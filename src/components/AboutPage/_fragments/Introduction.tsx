@@ -1,4 +1,5 @@
 import { Flex, Link, ListItem, Text, UnorderedList } from '@chakra-ui/react';
+import WrappedNextImage from '@components/@common/WrappedNextImage';
 import { METADATA } from '@configs/metaData';
 import React from 'react';
 
@@ -21,29 +22,42 @@ const Introduction = () => {
       flexDir="column"
       borderBottomWidth="1px"
       borderColor="#eaeaea"
-      pb="20px"
+      pb="30px"
     >
-      <Text textStyle="xl_bold">안병진</Text>
-      <Text textStyle="sm" mb="5px">
-        Frontend Developer
-      </Text>
+      <Flex columnGap="30px">
+        <WrappedNextImage
+          src={METADATA.thumbnailUrl}
+          alt="my_image"
+          width="100px"
+          height="100px"
+          borderRadius="100%"
+          overflow="hidden"
+          minW="100px"
+        />
+        <Flex flexDir="column">
+          <Text textStyle="xl_bold">안병진</Text>
+          <Text textStyle="sm" mb="5px">
+            Frontend Developer
+          </Text>
 
-      <UnorderedList mb="20px" textStyle="sm" listStyleType="circle">
-        {contactList.map(({ label, link, linkLabel }) => (
-          <ListItem key={`link:${link}`}>
-            <Flex alignItems="center">
-              <Text mr="3px" textStyle="sm_bold">
-                {label}
-              </Text>
-              <Link href={link} isExternal>
-                <Text color="gray.500" textStyle="sm">
-                  {linkLabel}
-                </Text>
-              </Link>
-            </Flex>
-          </ListItem>
-        ))}
-      </UnorderedList>
+          <UnorderedList mb="20px" textStyle="sm" listStyleType="circle">
+            {contactList.map(({ label, link, linkLabel }) => (
+              <ListItem key={`link:${link}`}>
+                <Flex alignItems="center" flexWrap="wrap">
+                  <Text mr="3px" textStyle="sm_bold">
+                    {label}
+                  </Text>
+                  <Link href={link} isExternal>
+                    <Text color="gray.500" textStyle="sm">
+                      {linkLabel}
+                    </Text>
+                  </Link>
+                </Flex>
+              </ListItem>
+            ))}
+          </UnorderedList>
+        </Flex>
+      </Flex>
 
       <Flex flexWrap="wrap" textStyle="sm" rowGap="2px" flexDir="column">
         <Text>스타트업에서 프론트엔드 개발을 하고 있습니다.</Text>

@@ -4,9 +4,14 @@ import { ProjectItem } from './_fragments';
 
 const Projects = () => {
   return (
-    <Flex flexDir="column">
+    <Flex
+      flexDir="column"
+      borderBottomWidth="1px"
+      borderColor="#eaeaea"
+      pb="30px"
+    >
       <Text textStyle="lg_bold" mb="15px">
-        👨🏻‍💻 Projects
+        Projects
       </Text>
 
       <Flex flexDir="column" rowGap="20px">
