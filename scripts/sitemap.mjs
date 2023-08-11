@@ -15,23 +15,22 @@ const sitemap = `
   </url>
   <url>
     <loc>${`https://devahn.vercel.app/about`}</loc>
-  </url>
-    ${pages
-      .map((page) => {
-        const path = page
-          .replace('pages', '')
-          .replace('posts', '')
-          .replace('.tsx', '')
-          .replace('.js', '')
-          .replace('.mdx', '')
-          .replace('/index', '');
-        return `
+  </url>${pages
+    .map((page) => {
+      const path = page
+        .replace('pages', '')
+        .replace('posts', '')
+        .replace('.tsx', '')
+        .replace('.js', '')
+        .replace('.mdx', '')
+        .replace('/index', '');
+      return `
           <url>
               <loc>${`https://devahn.vercel.app${path}`}</loc>
           </url>
         `;
-      })
-      .join('')}
+    })
+    .join('')}
 </urlset>
 `;
 
