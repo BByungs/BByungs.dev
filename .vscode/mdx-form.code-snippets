@@ -1,0 +1,18 @@
+{
+  "Add MDX Metadata": {
+    "prefix": "mdx",
+    "body": [
+      "---",
+      "title: ${1:제목}",
+      "date: ${2:YYYY-MM-DD}",
+      "description: ${3:설명}",
+      "thumbnailUrl: '${4:/images/my-photo.jpeg}'",
+      "tags:",
+      "    - ${5:tag1}",
+      "    - ${6:tag2}",
+      "---",
+      "$0"
+    ],
+    "description": "Add MDX Metadata to Markdown file"
+  }
+}
